@@ -24,6 +24,7 @@ export type AppStackParamList = {
   CartScreen: undefined;
   OutletScreen: undefined;
   AboutUsScreen: undefined;
+  SuccessOrderScreen: undefined;
   ProductScreen: {
     productId: string;
   };

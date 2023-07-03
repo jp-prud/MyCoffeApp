@@ -7,6 +7,7 @@ import {
   FavoriteScreen,
   NotificationScreen,
   ProductScreen,
+  SuccessOrderScreen,
 } from '@screens';
 
 import {
@@ -28,6 +29,7 @@ export function AppStackScreen() {
 
       <Screen name="AboutUsScreen" component={AboutUsScreen} />
       <Screen name="ProductScreen" component={ProductScreen} />
+      <Screen name="SuccessOrderScreen" component={SuccessOrderScreen} />
     </Navigator>
   );
 }
