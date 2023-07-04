@@ -1,7 +1,13 @@
+import {useState, useEffect} from 'react';
+import {Image} from 'react-native';
+
+import {ProductProps} from '@domain';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 import {Screen, Box, TouchableOpacityBox, Text, Icon} from '@components';
 import {RootStackParamList} from '@routes';
+
+import ProductService from '../../../services/ProductService';
 
 import {FixedActionsContainer} from './components/FixedActionsContainer/FixedActionsContainer';
 import {OptionsSelector} from './components/OptionsSelector/OptionsSelector';
@@ -9,51 +15,83 @@ import {OptionsSelector} from './components/OptionsSelector/OptionsSelector';
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'ProductScreen'>;
 
 export function ProductScreen({route}: ScreenProps) {
-  console.log(route);
+  const [productContext, setProductContext] = useState<ProductProps | null>(
+    null,
+  );
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+      const response = await ProductService.getProductById(
+        route.params.productId,
+      );
+
+      setProductContext(response);
+      setIsLoading(false);
+    })();
+  }, [route.params.productId]);
 
   return (
-    <>
-      <Screen scrollable canGoBack>
-        <Box height={320} backgroundColor="primary" borderRadius="s16" />
-        <Box
-          flexDirection="row"
-          justifyContent="space-between"
-          alignItems="center"
-          mt="s16">
-          <Box gap="s4">
-            <Text preset="headingMedium">Café Latte</Text>
+    <Screen
+      scrollable
+      canGoBack
+      isLoading={isLoading}
+      FooterComponent={
+        productContext && <FixedActionsContainer price={productContext.price} />
+      }>
+      {productContext && (
+        <>
+          <Box borderRadius="s16" overflow="hidden">
+            <Image
+              source={{
+                uri: productContext.images[0].url,
+                height: 320,
+              }}
+              alt={productContext.images[0].alt}
+            />
+          </Box>
 
-            <Text color="gray2" semiBold>
-              Com leite
+          <Box
+            flexDirection="row"
+            justifyContent="space-between"
+            alignItems="center"
+            mt="s16">
+            <Box gap="s4">
+              <Text preset="headingMedium">{productContext.name}</Text>
+
+              <Text color="gray2" semiBold>
+                {productContext.subtitle}
+              </Text>
+            </Box>
+
+            <TouchableOpacityBox>
+              <Icon name="heart" color="error" />
+            </TouchableOpacityBox>
+          </Box>
+
+          <Box marginVertical="s16" gap="s4">
+            <Text bold>Descrição</Text>
+
+            <Text preset="paragraphSmall" color="gray1">
+              {productContext.description}
+
+              {productContext.description.length >= 110 && (
+                <Text color="primary" preset="paragraphSmall" semiBold>
+                  Ler mais.
+                </Text>
+              )}
             </Text>
           </Box>
 
-          <TouchableOpacityBox>
-            <Icon name="heart" color="error" />
-          </TouchableOpacityBox>
-        </Box>
-        <Box marginVertical="s16" gap="s4">
-          <Text bold>Descrição</Text>
+          <OptionsSelector />
 
-          <Text preset="paragraphSmall" color="gray1">
-            Lorem ipsum dolor sit amet, consectetur adipisicing lit. Eos facere
-            tempora sint doloremque doloribus. Ratione!
-            <Text color="primary" preset="paragraphSmall" semiBold>
-              Ler mais...
+          <Box mt="s16">
+            <Text semiBold color="gray1">
+              Adicionais
             </Text>
-          </Text>
-        </Box>
-
-        <OptionsSelector />
-
-        <Box mt="s16">
-          <Text semiBold color="gray1">
-            Adicionais
-          </Text>
-        </Box>
-      </Screen>
-
-      <FixedActionsContainer />
-    </>
+          </Box>
+        </>
+      )}
+    </Screen>
   );
 }

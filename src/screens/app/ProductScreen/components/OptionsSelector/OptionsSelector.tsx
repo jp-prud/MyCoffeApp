@@ -1,5 +1,24 @@
 import {Text, Box, TouchableOpacityBox} from '@components';
 
+// const DATA = [
+//   {
+//     title: 'Main dishes',
+//     data: ['Pizza', 'Burger', 'Risotto'],
+//   },
+//   {
+//     title: 'Sides',
+//     data: ['French Fries', 'Onion Rings', 'Fried Shrimps'],
+//   },
+//   {
+//     title: 'Drinks',
+//     data: ['Water', 'Coke', 'Beer'],
+//   },
+//   {
+//     title: 'Desserts',
+//     data: ['Cheese Cake', 'Ice Cream'],
+//   },
+// ];
+
 export function OptionsSelector() {
   return (
     <Box
@@ -8,6 +27,13 @@ export function OptionsSelector() {
       borderTopWidth={1}
       borderBottomWidth={1}
       borderColor="gray4">
+      {/* <FlatList
+        data={DATA}
+        keyExtractor={item => item}
+        renderItem={({item}) => <Text>{item.data}</Text>}
+        // renderSectionHeader={({section: {title}}) => <Text>{title}</Text>}
+      /> */}
+
       <Box flexDirection="row" alignItems="center">
         <Box flex={1}>
           <Text color="gray1" semiBold>

@@ -1,19 +1,23 @@
 import {useCallback, useState, useMemo} from 'react';
 
+import {useOrderContext} from '@context';
+import {ProductProps} from '@domain';
+
 import {Text, Box, TouchableOpacityBox, Button} from '@components';
 import {useAppSafeArea} from '@hooks';
 
-import {useOrderContext} from '../../../../../context/OrderContext/OrderContext';
+import {formatPrice} from '../../../../../utils';
 
 type UpdateOptionType = 'more' | 'less';
 
-export function FixedActionsContainer() {
+export function FixedActionsContainer({
+  price = 0,
+}: Pick<ProductProps, 'price'>) {
   const {bottom} = useAppSafeArea();
 
   const {handleAddToCart} = useOrderContext();
 
   const [productQuantity, setProductQuantity] = useState(1);
-  const [productPrice] = useState(7);
 
   const handleClickUpdateProductQuantity = useCallback(
     (updateOption: UpdateOptionType) => {
@@ -29,8 +33,8 @@ export function FixedActionsContainer() {
   );
 
   const calculatedProductPrice = useMemo(
-    () => productPrice * productQuantity,
-    [productPrice, productQuantity],
+    () => price * productQuantity,
+    [price, productQuantity],
   );
 
   return (
@@ -47,7 +51,7 @@ export function FixedActionsContainer() {
         justifyContent="space-between"
         alignItems="center">
         <Text preset="paragraphLarge" semiBold>
-          {calculatedProductPrice}
+          {formatPrice(calculatedProductPrice)}
         </Text>
 
         <Box flexDirection="row" gap="s32">
@@ -76,7 +80,8 @@ export function FixedActionsContainer() {
           handleAddToCart({
             productId: '1',
             productName: 'Produto 1',
-            value: 1234,
+            value: calculatedProductPrice,
+            quantity: productQuantity,
           })
         }
       />
