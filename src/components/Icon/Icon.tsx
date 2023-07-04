@@ -81,4 +81,4 @@ const iconRegistry = {
 
 type IconType = typeof iconRegistry;
 
-export type IconName = keyof IconType;
+type IconName = keyof IconType;
