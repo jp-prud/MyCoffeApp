@@ -1,27 +1,38 @@
-import {Text, Box, Icon, IconName} from '@components';
+import {
+  Text,
+  Icon,
+  TouchableOpacityBox,
+  TouchableOpacityBoxProps,
+  IconProps,
+} from '@components';
 
-interface ScreenTabBarButtonProps {
-  title: string;
+export interface ScreenTabBarButtonProps {
+  label: string;
   icon: {
-    default: IconName;
-    filled: IconName;
+    focused: IconProps['name'];
+    unfocused: IconProps['name'];
   };
   focused?: boolean;
 }
 
 export function ScreenTabBarButton({
-  title,
+  label: title,
   icon,
   focused,
-}: ScreenTabBarButtonProps) {
+  ...touchableOpacityBoxProps
+}: ScreenTabBarButtonProps & TouchableOpacityBoxProps) {
   return (
-    <Box alignItems="center" justifyContent="center" gap="s4">
+    <TouchableOpacityBox
+      alignItems="center"
+      justifyContent="center"
+      gap="s4"
+      {...touchableOpacityBoxProps}>
       <Icon
-        name={focused ? icon.filled : icon.default}
+        name={focused ? icon.unfocused : icon.focused}
         color={focused ? 'primary' : 'grayBlack'}
       />
 
       <Text color={focused ? 'primary' : 'grayBlack'}>{title}</Text>
-    </Box>
+    </TouchableOpacityBox>
   );
 }
