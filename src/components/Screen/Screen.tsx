@@ -18,6 +18,7 @@ import {
 
 interface ScreenProps {
   children: React.ReactNode;
+  FooterComponent?: React.ReactNode;
   canGoBack?: boolean;
   scrollable?: boolean;
   isLoading?: boolean;
@@ -28,6 +29,7 @@ export function Screen({
   isLoading,
   canGoBack = false,
   scrollable = false,
+  FooterComponent,
 }: ScreenProps) {
   const {top, bottom} = useAppSafeArea();
   const {colors} = useAppTheme();
@@ -65,16 +67,16 @@ export function Screen({
 
   function renderLoadingScreenState() {
     return (
-      <Box flex={1} alignItems="center" justifyContent="center">
-        <ActivityIndicator color="primary" />
+      <Box alignItems="center" justifyContent="center">
+        <ActivityIndicator color="primary" size={48} />
       </Box>
     );
   }
 
   return (
     <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-      style={{flex: 1}}>
+      style={{flex: 1}}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <Container backgroundColor={colors.background}>
         <Box
           paddingHorizontal="s24"
@@ -84,6 +86,8 @@ export function Screen({
           {isLoading ? renderLoadingScreenState() : children}
         </Box>
       </Container>
+
+      {FooterComponent && !isLoading && <Box>{FooterComponent}</Box>}
     </KeyboardAvoidingView>
   );
 }
