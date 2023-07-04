@@ -1,11 +1,11 @@
 import {useMemo, useState} from 'react';
 
+import {useOrderContext} from '@context';
+import {formatPrice} from '@utils';
+
 import {Box, Button, Screen, Text} from '@components';
 import {AppTabScreenProps} from '@routes';
 import {$shadowProps} from '@theme';
-
-import {useOrderContext} from '../../../context/OrderContext/OrderContext';
-import {formatPrice} from '../../../utils';
 
 import {PaymentStep, ShippingStep, SummaryStep} from './steps';
 import {Steps} from './steps/stepsTypes';
@@ -21,7 +21,7 @@ type StepProps = Record<
   }
 >;
 
-export function CartScreen({navigation}: AppTabScreenProps<'CartScreen'>) {
+export function CartScreen({}: AppTabScreenProps<'CartScreen'>) {
   const {orderItems, value} = useOrderContext();
 
   const [currentStep, setCurrentStep] = useState<Steps>('SummaryStep');
@@ -52,13 +52,13 @@ export function CartScreen({navigation}: AppTabScreenProps<'CartScreen'>) {
         step: PaymentStep,
         fixedContainer: {
           label: 'Finalizar',
-          function: () => navigation.navigate('HomeScreen'),
+          function: () => {},
         },
       },
     };
 
     return mappedSteps;
-  }, [navigation]);
+  }, []);
 
   const CurretStep = useMemo(
     () => steps[currentStep].step,
@@ -71,12 +71,18 @@ export function CartScreen({navigation}: AppTabScreenProps<'CartScreen'>) {
       scrollable
       FooterComponent={
         orderItems.length > 0 && (
-          <Box p="s24" style={$shadowProps} backgroundColor="background">
+          <Box
+            p="s24"
+            gap="s16"
+            pt="s16"
+            paddingHorizontal="s24"
+            style={$shadowProps}
+            backgroundColor="background">
             <Box
               flexDirection="row"
               alignItems="center"
               justifyContent="space-between">
-              <Text>Total a pagar</Text>
+              <Text semiBold>Total a pagar</Text>
 
               <Text>{formatPrice(value)}</Text>
             </Box>

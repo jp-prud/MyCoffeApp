@@ -2,7 +2,8 @@ import {ListRenderItemInfo} from 'react-native';
 
 import {OrderItem, useOrderContext} from '@context/OrderContext/OrderContext';
 
-import {Box, Button, Text, TouchableOpacityBox} from '@components';
+import {Box, Text, TouchableOpacityBox} from '@components';
+import {$shadowProps} from '@theme';
 
 export function SummaryStep() {
   const {orderItems} = useOrderContext();
@@ -36,7 +37,27 @@ export function SummaryStep() {
           </Text>
         </TouchableOpacityBox>
       </Box>
-      <Button text="Continuar" />
+
+      <Box gap="s16" mt="s10">
+        {['Caffe Latte', 'Brown Suggar'].map(item => (
+          <Box
+            key={item}
+            height={120}
+            flexDirection="row"
+            overflow="hidden"
+            borderRadius="s16"
+            backgroundColor="grayWhite"
+            borderColor="gray4"
+            borderWidth={1}
+            style={[$shadowProps]}>
+            <Box height={120} width={120} backgroundColor="grayBlack" />
+
+            <Box p="s10">
+              <Text semiBold>{item}</Text>
+            </Box>
+          </Box>
+        ))}
+      </Box>
     </Box>
   );
 }
