@@ -1,3 +1,4 @@
+import {useAuthContext} from '@context';
 import {NavigationContainer} from '@react-navigation/native';
 
 import {AppStackScreen} from './AppStack';
@@ -7,7 +8,7 @@ import {AuthStackParamList, AppStackParamList} from './navigationTypes';
 export type RootStackParamList = AuthStackParamList & AppStackParamList;
 
 export function Router() {
-  const isAuthenticated = true;
+  const {isAuthenticated} = useAuthContext();
 
   const ContainerStackRouter = isAuthenticated
     ? AppStackScreen

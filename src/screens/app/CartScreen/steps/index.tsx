@@ -1,3 +1,3 @@
-export {PaymentStep} from './PaymentStep';
-export {ShippingStep} from './ShippingStep';
-export {SummaryStep} from './SummaryStep';
+export {CheckoutStep} from './CheckoutStep';
+export {MiniCartStep} from './MiniCartStep';
+export * from './stepsTypes';

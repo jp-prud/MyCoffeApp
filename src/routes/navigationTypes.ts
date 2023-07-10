@@ -21,13 +21,18 @@ export type AppStackParamList = {
   NotificationScreen: undefined;
   ProfileScreen: undefined;
   FavoriteScreen: undefined;
-  CartScreen: undefined;
   OutletScreen: undefined;
+  CouponScreen: undefined;
   AboutUsScreen: undefined;
   SuccessOrderScreen: undefined;
   ProductScreen: {
     productId: string;
   };
+  ManageAccountScreen: undefined;
+  NotificationsAccountConfigScreen: undefined;
+  PrivacyPolicyScreen: undefined;
+  TermsAndConditionsScreen: undefined;
+  LegalScreen: undefined;
 };
 
 export type AuthStackParamList = {

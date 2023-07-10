@@ -1,4 +1,4 @@
-import {useMemo, useState} from 'react';
+import {useCallback, useMemo, useState} from 'react';
 
 import {useOrderContext} from '@context';
 import {formatPrice} from '@utils';
@@ -7,94 +7,82 @@ import {Box, Button, Screen, Text} from '@components';
 import {AppTabScreenProps} from '@routes';
 import {$shadowProps} from '@theme';
 
-import {PaymentStep, ShippingStep, SummaryStep} from './steps';
-import {Steps} from './steps/stepsTypes';
-
-type StepProps = Record<
-  Steps,
-  {
-    step: any;
-    fixedContainer: {
-      label: 'Continuar' | 'Finalizar';
-      function(): void;
-    };
-  }
->;
+import {MiniCartStep, CheckoutStep, Steps, StepProps} from './steps';
 
 export function CartScreen({}: AppTabScreenProps<'CartScreen'>) {
   const {orderItems, value} = useOrderContext();
 
-  const [currentStep, setCurrentStep] = useState<Steps>('SummaryStep');
+  const [currentStep, setCurrentStep] = useState<Steps>('MiniCartStep');
 
-  function handleClickNextStep() {
+  const handleClickToggleStep = useCallback(() => {
     return setCurrentStep(prevState =>
-      prevState === 'SummaryStep' ? 'ShippingStep' : 'PaymentStep',
+      prevState === 'MiniCartStep' ? 'CheckoutStep' : 'MiniCartStep',
     );
-  }
+  }, []);
 
   const steps = useMemo(() => {
     const mappedSteps: StepProps = {
-      SummaryStep: {
-        step: SummaryStep,
+      MiniCartStep: {
+        step: MiniCartStep,
         fixedContainer: {
           label: 'Continuar',
-          function: () => handleClickNextStep(),
+          function: () => handleClickToggleStep(),
         },
       },
-      ShippingStep: {
-        step: ShippingStep,
+      CheckoutStep: {
+        step: CheckoutStep,
         fixedContainer: {
-          label: 'Continuar',
-          function: () => handleClickNextStep(),
-        },
-      },
-      PaymentStep: {
-        step: PaymentStep,
-        fixedContainer: {
-          label: 'Finalizar',
+          label: 'Finalizar Pedido',
           function: () => {},
         },
       },
     };
 
     return mappedSteps;
-  }, []);
+  }, [handleClickToggleStep]);
 
   const CurretStep = useMemo(
     () => steps[currentStep].step,
     [steps, currentStep],
   );
 
+  const renderFooterComponent = useCallback(() => {
+    return (
+      <Box
+        p="s24"
+        gap="s16"
+        pt="s16"
+        paddingHorizontal="s24"
+        style={$shadowProps}
+        backgroundColor="background">
+        <Box
+          flexDirection="row"
+          alignItems="center"
+          justifyContent="space-between">
+          <Text semiBold>Total sem a entrega</Text>
+
+          <Text>
+            {formatPrice(value)}{' '}
+            <Text color="gray1" preset="paragraphSmall">
+              / {orderItems.length} items
+            </Text>
+          </Text>
+        </Box>
+
+        <Button
+          text={steps[currentStep].fixedContainer.label}
+          onPress={steps[currentStep].fixedContainer.function}
+        />
+      </Box>
+    );
+  }, [currentStep, orderItems.length, steps, value]);
+
   return (
     <Screen
-      canGoBack
-      scrollable
-      FooterComponent={
-        orderItems.length > 0 && (
-          <Box
-            p="s24"
-            gap="s16"
-            pt="s16"
-            paddingHorizontal="s24"
-            style={$shadowProps}
-            backgroundColor="background">
-            <Box
-              flexDirection="row"
-              alignItems="center"
-              justifyContent="space-between">
-              <Text semiBold>Total a pagar</Text>
-
-              <Text>{formatPrice(value)}</Text>
-            </Box>
-
-            <Button
-              text={steps[currentStep].fixedContainer.label}
-              onPress={steps[currentStep].fixedContainer.function}
-            />
-          </Box>
-        )
-      }>
-      <CurretStep />
+      canGoBack={currentStep === 'MiniCartStep'}
+      scrollable={currentStep === 'CheckoutStep'}
+      FooterComponent={orderItems.length > 0 && renderFooterComponent()}>
+      <CurretStep onToggleStep={handleClickToggleStep} />
     </Screen>
   );
 }
