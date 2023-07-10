@@ -13,7 +13,7 @@ interface OrderContextProps {
   orderItems: Array<ProductSummaryCheckoutProps>;
   clientProfileData: ClientProfile;
   value: number;
-  handleAddToCart(item: any): void;
+  handleAddToCart(item: ProductSummaryCheckoutProps): void;
   handleRemoveItem(item: any): void;
   handleClearCart(): void;
 }
@@ -26,9 +26,35 @@ export function OrderContextProvider({children}: {children: React.ReactNode}) {
   const [orderFormId] = useState('1');
   const [clientProfileData] = useState({} as ClientProfile);
 
-  const handleAddToCart = useCallback((item: ProductSummaryCheckoutProps) => {
-    setOrderItems(prevState => [...prevState, item]);
-  }, []);
+  const handleAddToCart = useCallback(
+    (newItem: ProductSummaryCheckoutProps) => {
+      setOrderItems(prevState => {
+        const productIsAlreadAdded = prevState.find(
+          item => item.id === newItem.id,
+        );
+
+        if (productIsAlreadAdded) {
+          return prevState.map(item => {
+            const product = item.id === newItem.id;
+
+            if (product) {
+              const productIncrementedQuantity = {
+                ...item,
+                quantity: item.quantity + 1,
+              };
+
+              return productIncrementedQuantity;
+            }
+
+            return item;
+          });
+        }
+
+        return [...prevState, newItem];
+      });
+    },
+    [],
+  );
 
   const handleClearCart = useCallback(() => setOrderItems([]), []);
 
