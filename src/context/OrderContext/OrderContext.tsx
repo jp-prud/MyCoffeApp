@@ -1,5 +1,7 @@
 import {createContext, useContext, useState, useCallback, useMemo} from 'react';
 
+import {ProductSummaryCheckoutProps, productCartMock} from '@domain';
+
 interface ClientProfile {
   name: string;
   phone: string;
@@ -8,37 +10,46 @@ interface ClientProfile {
 
 interface OrderContextProps {
   orderFormId: string;
-  orderItems: Array<any>;
+  orderItems: Array<ProductSummaryCheckoutProps>;
   clientProfileData: ClientProfile;
   value: number;
   handleAddToCart(item: any): void;
-  handleRemoveItemFromCart(item: any): void;
+  handleRemoveItem(item: any): void;
   handleClearCart(): void;
 }
 
 const OrderContext = createContext({} as OrderContextProps);
 
 export function OrderContextProvider({children}: {children: React.ReactNode}) {
-  const [orderItems, setOrderItems] = useState<Array<any>>([]);
-  const [value] = useState(0);
+  const [orderItems, setOrderItems] =
+    useState<ProductSummaryCheckoutProps[]>(productCartMock);
   const [orderFormId] = useState('1');
   const [clientProfileData] = useState({} as ClientProfile);
 
-  const handleAddToCart = useCallback((item: any) => {
+  const handleAddToCart = useCallback((item: ProductSummaryCheckoutProps) => {
     setOrderItems(prevState => [...prevState, item]);
   }, []);
 
   const handleClearCart = useCallback(() => setOrderItems([]), []);
 
-  const handleRemoveItemFromCart = useCallback((item: any) => {
-    setOrderItems(prevState => {
-      const filteredItems = prevState.filter(
-        currentItem => currentItem !== item,
-      );
+  const value = useMemo(() => {
+    return orderItems.reduce((acc, item) => (acc += item.price), 0);
+  }, [orderItems]);
 
-      return filteredItems;
-    });
-  }, []);
+  const handleRemoveItem = useCallback(
+    (id: ProductSummaryCheckoutProps['id']) => {
+      setOrderItems(prevState => {
+        const filteredItems = prevState.filter(
+          currentItem => currentItem.id !== id,
+        );
+
+        console.log({filteredItems});
+
+        return filteredItems;
+      });
+    },
+    [],
+  );
 
   const orderContextValue = useMemo(() => {
     return {
@@ -54,7 +65,7 @@ export function OrderContextProvider({children}: {children: React.ReactNode}) {
       value={{
         ...orderContextValue,
         handleAddToCart,
-        handleRemoveItemFromCart,
+        handleRemoveItem,
         handleClearCart,
       }}>
       {children}
