@@ -4,10 +4,16 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {
   AboutUsScreen,
+  CouponScreen,
   FavoriteScreen,
+  LegalScreen,
+  ManageAccountScreen,
+  NotificationsAccountConfigScreen,
   NotificationScreen,
+  PrivacyPolicyScreen,
   ProductScreen,
   SuccessOrderScreen,
+  TermsAndConditionsScreen,
 } from '@screens';
 
 import {
@@ -29,7 +35,22 @@ export function AppStackScreen() {
 
       <Screen name="AboutUsScreen" component={AboutUsScreen} />
       <Screen name="ProductScreen" component={ProductScreen} />
+
       <Screen name="SuccessOrderScreen" component={SuccessOrderScreen} />
+      <Screen name="CouponScreen" component={CouponScreen} />
+
+      <Screen name="ManageAccountScreen" component={ManageAccountScreen} />
+      <Screen
+        name="NotificationsAccountConfigScreen"
+        component={NotificationsAccountConfigScreen}
+      />
+      <Screen
+        name="TermsAndConditionsScreen"
+        component={TermsAndConditionsScreen}
+      />
+
+      <Screen name="PrivacyPolicyScreen" component={PrivacyPolicyScreen} />
+      <Screen name="LegalScreen" component={LegalScreen} />
     </Navigator>
   );
 }
