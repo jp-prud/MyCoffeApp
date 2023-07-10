@@ -11,3 +11,4 @@ export * from './TextInput/TextInput';
 export * from './ScreenTabBarButton/ScreenTabBarButton';
 export * from './ProductShelf/ProductShelf';
 export * from './CelebrationCard/CelebrationCard';
+export * from './BottomSheet/BottomSheet';
