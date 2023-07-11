@@ -2,7 +2,7 @@ import Svg, {Path} from 'react-native-svg';
 
 import {IconBase} from '../../components/Icon/Icon';
 
-export function UserFilledIcon({color = 'black', size = 24}: IconBase) {
+export function UserFillIcon({color = 'black', size = 24}: IconBase) {
   return (
     <Svg width={size} height={size} fill="none">
       <Path
