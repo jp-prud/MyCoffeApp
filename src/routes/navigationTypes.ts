@@ -33,6 +33,7 @@ export type AppStackParamList = {
   PrivacyPolicyScreen: undefined;
   TermsAndConditionsScreen: undefined;
   LegalScreen: undefined;
+  FeedbackDeveloperScreen: undefined;
 };
 
 export type AuthStackParamList = {

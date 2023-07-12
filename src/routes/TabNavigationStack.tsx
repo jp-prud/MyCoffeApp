@@ -26,7 +26,7 @@ export function TabNavigationStack() {
     <Navigator
       screenOptions={TAB_NAVIGATOR_SCREEN_OPTIONS}
       tabBar={renderTabBar}
-      initialRouteName="CartScreen">
+      initialRouteName="HomeScreen">
       <Screen name="HomeScreen" component={HomeScreen} />
 
       <Screen name="CartScreen" component={CartScreen} />

@@ -6,6 +6,7 @@ import {
   AboutUsScreen,
   CouponScreen,
   FavoriteScreen,
+  FeedbackDeveloperScreen,
   LegalScreen,
   ManageAccountScreen,
   NotificationsAccountConfigScreen,
@@ -27,7 +28,7 @@ const {Navigator, Screen} = createNativeStackNavigator<AppStackParamList>();
 export function AppStackScreen() {
   return (
     <Navigator
-      initialRouteName="AppTabNavigator"
+      initialRouteName="FeedbackDeveloperScreen"
       screenOptions={NAVIGATOR_STACK_SCREEN_OPTIONS}>
       <Screen name="AppTabNavigator" component={TabNavigationStack} />
       <Screen name="FavoriteScreen" component={FavoriteScreen} />
@@ -51,6 +52,10 @@ export function AppStackScreen() {
 
       <Screen name="PrivacyPolicyScreen" component={PrivacyPolicyScreen} />
       <Screen name="LegalScreen" component={LegalScreen} />
+      <Screen
+        name="FeedbackDeveloperScreen"
+        component={FeedbackDeveloperScreen}
+      />
     </Navigator>
   );
 }
