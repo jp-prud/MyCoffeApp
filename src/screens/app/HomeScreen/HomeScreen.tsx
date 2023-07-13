@@ -71,7 +71,7 @@ export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>) {
           </Box>
         </Box>
 
-        <Box>
+        <Box gap="s16">
           <Text preset="headingMedium">O que você gostaria no seu pedido?</Text>
 
           <TextInput

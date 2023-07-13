@@ -28,7 +28,9 @@ export function ProductSummary({product}: {product: ProductSummaryProps}) {
         </Box>
 
         <Box p="s12" gap="s8">
-          <Text preset="paragraphSmall">{product.name}</Text>
+          <Text preset="paragraphSmall" numberOfLines={1}>
+            {product.name}
+          </Text>
 
           <Text preset="paragraphSmall" bold>
             {formatPrice(product.price)}

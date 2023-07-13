@@ -136,6 +136,6 @@ const $styles = StyleSheet.create({
     borderRadius: 24,
     position: 'absolute',
     top: SCREEN_HEIGHT,
-    zIndex: 2,
+    zIndex: 1,
   },
 });

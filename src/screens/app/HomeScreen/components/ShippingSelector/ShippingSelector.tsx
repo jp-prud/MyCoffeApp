@@ -67,7 +67,7 @@ export function ShippingSelector() {
           gap="s14"
           alignItems="center"
           mt="s12">
-          <Icon name="locationFilled" />
+          <Icon name="sendFill" />
 
           <Box flex={1}>
             <Text semiBold>Usar localização atual</Text>
@@ -134,7 +134,7 @@ export function ShippingSelector() {
         Selecione um endereço
       </Text>
 
-      <Box mb="s16">
+      <Box mb="s16" mt="s16">
         <FormTextInput
           control={control}
           name="address"
