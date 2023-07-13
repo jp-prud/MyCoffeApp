@@ -46,9 +46,11 @@ export function TextInput({
   return (
     <Pressable onPress={handleClickInputFocus}>
       <Box g="s4">
-        <Text preset="paragraphMedium" semiBold>
-          {label}
-        </Text>
+        {label && (
+          <Text preset="paragraphMedium" semiBold>
+            {label}
+          </Text>
+        )}
 
         <Box {...$textInputContainer}>
           {prefix && (
