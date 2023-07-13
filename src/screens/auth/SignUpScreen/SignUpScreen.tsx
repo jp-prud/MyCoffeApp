@@ -1,5 +1,6 @@
 import {zodResolver} from '@hookform/resolvers/zod';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {delay} from '@utils';
 import {useForm} from 'react-hook-form';
 
 import {
@@ -32,9 +33,7 @@ export function SignUpScreen(props: ScreenProps) {
   });
 
   async function handleClickSubmitForm() {
-    await new Promise<void>(resolve => {
-      setTimeout(resolve, 1000);
-    });
+    await delay(1000);
 
     reset({
       title: 'Sua conta foi criada com sucesso!',

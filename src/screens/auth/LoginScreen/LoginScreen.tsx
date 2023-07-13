@@ -1,5 +1,4 @@
-import {Alert} from 'react-native';
-
+import {useAuthContext} from '@context';
 import {zodResolver} from '@hookform/resolvers/zod';
 import type {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {useForm} from 'react-hook-form';
@@ -29,8 +28,10 @@ export function LoginScreen({navigation}: ScreenProps) {
     },
   });
 
+  const {handleLogin} = useAuthContext();
+
   function handleClickLogin({email}: LoginFormSchemaTypes) {
-    Alert.alert('email', email);
+    handleLogin(email);
   }
 
   function handleClickNavigateToForgotPassword() {
@@ -75,6 +76,7 @@ export function LoginScreen({navigation}: ScreenProps) {
           text="Entrar"
           onPress={handleSubmit(handleClickLogin)}
           disabled={!formState.isValid}
+          loading={formState.isSubmitting}
         />
         <Button
           text="Criar conta"
