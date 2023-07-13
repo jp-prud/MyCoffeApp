@@ -1,13 +1,19 @@
-import {ProductProps, productMock, productsShelfMock} from '@domain';
+import {ProductProps, productMock} from '@domain';
 import {delay} from '@utils';
 
 class ProductService {
-  public async getProductById(productId: string): Promise<ProductProps> {
-    console.log({productId});
+  public async getProductById(
+    productId: string,
+  ): Promise<ProductProps | undefined> {
+    await delay(100);
 
-    await delay();
+    return new Promise(resolve => {
+      const product = productMock.find(
+        currentProduct => currentProduct.id === productId,
+      );
 
-    return new Promise(resolve => resolve(productMock));
+      resolve(product);
+    });
   }
 
   public async getProductsFromCategory(
@@ -17,7 +23,7 @@ class ProductService {
 
     await delay();
 
-    return new Promise(resolve => resolve(productsShelfMock));
+    return new Promise(resolve => resolve(productMock));
   }
 }
 
