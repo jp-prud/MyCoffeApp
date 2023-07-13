@@ -97,7 +97,7 @@ export function CheckoutStep({onToggleStep}: CheckoutStepProps) {
         <ProfileNavigator
           title="Contato"
           subtitle="Fone: (47) 99708-6662"
-          icon="home"
+          icon="call"
         />
       </Box>
 

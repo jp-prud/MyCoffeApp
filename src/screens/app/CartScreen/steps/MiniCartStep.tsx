@@ -28,7 +28,7 @@ export function MiniCartStep() {
   const navigation = useNavigation();
 
   function renderOrderItem({
-    item: {id, images, name, price},
+    item: {id, images, name, price, quantity},
   }: ListRenderItemInfo<ProductSummaryCheckoutProps>) {
     return (
       <Box height={86} flexDirection="row" alignItems="center">
@@ -42,13 +42,16 @@ export function MiniCartStep() {
           borderRadius={8}
         />
 
+        <Text>{quantity}</Text>
         <Box p="s10" flex={1}>
           <Text semiBold>{name}</Text>
-          <Text color="gray1">{formatPrice(price)}</Text>
+          <Text color="gray1" preset="paragraphSmall">
+            {formatPrice(price * quantity)}
+          </Text>
         </Box>
 
         <Icon
-          name="bag"
+          name="trash"
           onPress={() => {
             setSelectedProductIdToRemove(id);
 
@@ -72,7 +75,9 @@ export function MiniCartStep() {
         width="100%"
         alignItems="flex-end"
         flexDirection="row"
-        justifyContent="space-between">
+        justifyContent="space-between"
+        backgroundColor="background"
+        pb="s8">
         <Text preset="headingMedium" semiBold>
           Produtos
         </Text>
@@ -118,7 +123,7 @@ export function MiniCartStep() {
         borderColor="gray4"
         borderTopWidth={1}
         onPress={() => navigation.navigate('CouponScreen')}>
-        <Icon name="bag" />
+        <Icon name="ticket" />
 
         <Box>
           <Text>Cupom</Text>
@@ -141,14 +146,16 @@ export function MiniCartStep() {
   return (
     <>
       <FlatList
-        ListHeaderComponent={renderHeaderList}
         data={orderItems}
         keyExtractor={item => item.id}
         renderItem={renderOrderItem}
         ItemSeparatorComponent={renderItemSeparatorComponent}
-        ListHeaderComponentStyle={{marginBottom: 28}}
+        ListHeaderComponent={renderHeaderList}
+        stickyHeaderIndices={[0]}
+        ListHeaderComponentStyle={{marginBottom: 12}}
         ListEmptyComponent={renderEmptyCartComponent}
         ListFooterComponent={renderFooterList}
+        ListFooterComponentStyle={{paddingBottom: 28}}
       />
 
       <BottomSheet ref={bottomSheetRef}>
