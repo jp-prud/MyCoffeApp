@@ -4,7 +4,14 @@ import {Image} from 'react-native';
 import {ProductProps} from '@domain';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
-import {Screen, Box, TouchableOpacityBox, Text, Icon} from '@components';
+import {
+  Screen,
+  Box,
+  TouchableOpacityBox,
+  Text,
+  Icon,
+  TextInput,
+} from '@components';
 import {RootStackParamList} from '@routes';
 
 import ProductService from '../../../services/ProductService';
@@ -33,11 +40,12 @@ export function ProductScreen({route}: ScreenProps) {
 
   return (
     <Screen
-      scrollable
       canGoBack
       isLoading={isLoading}
       FooterComponent={
-        productContext && <FixedActionsContainer price={productContext.price} />
+        productContext && (
+          <FixedActionsContainer productContext={productContext} />
+        )
       }>
       {productContext && (
         <>
@@ -45,7 +53,7 @@ export function ProductScreen({route}: ScreenProps) {
             <Image
               source={{
                 uri: productContext.images[0].url,
-                height: 320,
+                height: 240,
               }}
               alt={productContext.images[0].alt}
             />
@@ -85,10 +93,20 @@ export function ProductScreen({route}: ScreenProps) {
 
           <OptionsSelector />
 
-          <Box mt="s16">
-            <Text semiBold color="gray1">
-              Adicionais
-            </Text>
+          <Box mt="s24">
+            <Box
+              flexDirection="row"
+              alignItems="flex-end"
+              justifyContent="space-between"
+              mb="s16">
+              <Box flex={1} gap="s8" flexDirection="row">
+                <Icon name="messageText" />
+                <Text semiBold>Alguma observação ?</Text>
+              </Box>
+
+              <Text color="gray2">0/140</Text>
+            </Box>
+            <TextInput placeholder="Ex: Tirar o chantily..." />
           </Box>
         </>
       )}

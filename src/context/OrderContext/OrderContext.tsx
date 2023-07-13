@@ -1,6 +1,7 @@
 import {createContext, useContext, useState, useCallback, useMemo} from 'react';
 
-import {ProductSummaryCheckoutProps, productCartMock} from '@domain';
+import {ProductSummaryCheckoutProps, productMock} from '@domain';
+import {delay} from '@utils';
 
 interface ClientProfile {
   name: string;
@@ -13,7 +14,7 @@ interface OrderContextProps {
   orderItems: Array<ProductSummaryCheckoutProps>;
   clientProfileData: ClientProfile;
   value: number;
-  handleAddToCart(item: ProductSummaryCheckoutProps): void;
+  handleAddToCart(item: ProductSummaryCheckoutProps): Promise<any>;
   handleRemoveItem(item: any): void;
   handleClearCart(): void;
 }
@@ -22,12 +23,14 @@ const OrderContext = createContext({} as OrderContextProps);
 
 export function OrderContextProvider({children}: {children: React.ReactNode}) {
   const [orderItems, setOrderItems] =
-    useState<ProductSummaryCheckoutProps[]>(productCartMock);
+    useState<ProductSummaryCheckoutProps[]>(productMock);
   const [orderFormId] = useState('1');
   const [clientProfileData] = useState({} as ClientProfile);
 
   const handleAddToCart = useCallback(
-    (newItem: ProductSummaryCheckoutProps) => {
+    async (newItem: ProductSummaryCheckoutProps) => {
+      await delay(100);
+
       setOrderItems(prevState => {
         const productIsAlreadAdded = prevState.find(
           item => item.id === newItem.id,
@@ -40,7 +43,7 @@ export function OrderContextProvider({children}: {children: React.ReactNode}) {
             if (product) {
               const productIncrementedQuantity = {
                 ...item,
-                quantity: item.quantity + 1,
+                quantity: item.quantity + newItem.quantity,
               };
 
               return productIncrementedQuantity;
@@ -59,7 +62,10 @@ export function OrderContextProvider({children}: {children: React.ReactNode}) {
   const handleClearCart = useCallback(() => setOrderItems([]), []);
 
   const value = useMemo(() => {
-    return orderItems.reduce((acc, item) => (acc += item.price), 0);
+    return orderItems.reduce(
+      (acc, item) => (acc += item.price * item.quantity),
+      0,
+    );
   }, [orderItems]);
 
   const handleRemoveItem = useCallback(

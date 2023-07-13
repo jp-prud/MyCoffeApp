@@ -2,20 +2,26 @@ import {useCallback, useState, useMemo} from 'react';
 
 import {useOrderContext} from '@context';
 import {ProductProps} from '@domain';
+import {useNavigation} from '@react-navigation/native';
 
-import {Text, Box, TouchableOpacityBox, Button} from '@components';
+import {Text, Box, Button, Icon} from '@components';
 import {useAppSafeArea} from '@hooks';
+import {$shadowProps} from '@theme';
 
 import {formatPrice} from '../../../../../utils';
 
 type UpdateOptionType = 'more' | 'less';
 
 export function FixedActionsContainer({
-  price = 0,
-}: Pick<ProductProps, 'price'>) {
+  productContext,
+}: {
+  productContext: ProductProps;
+}) {
   const {bottom} = useAppSafeArea();
 
   const {handleAddToCart} = useOrderContext();
+
+  const navigation = useNavigation();
 
   const [productQuantity, setProductQuantity] = useState(1);
 
@@ -33,57 +39,54 @@ export function FixedActionsContainer({
   );
 
   const calculatedProductPrice = useMemo(
-    () => price * productQuantity,
-    [price, productQuantity],
+    () => productContext.price * productQuantity,
+    [productContext, productQuantity],
   );
 
   return (
     <Box
-      style={{
-        paddingBottom: bottom,
-        elevation: 1,
-      }}
+      style={[$shadowProps, {paddingBottom: bottom}]}
       gap="s16"
       pt="s16"
-      paddingHorizontal="s24">
+      paddingHorizontal="s24"
+      backgroundColor="background">
       <Box
         flexDirection="row"
         justifyContent="space-between"
         alignItems="center">
-        <Text preset="paragraphLarge" semiBold>
+        <Text preset="paragraphLarge">
           {formatPrice(calculatedProductPrice)}
         </Text>
 
-        <Box flexDirection="row" gap="s32">
-          <TouchableOpacityBox
-            onPress={() => handleClickUpdateProductQuantity('less')}>
-            <Text semiBold>-</Text>
-          </TouchableOpacityBox>
+        <Box flexDirection="row" gap="s24">
+          <Icon
+            name="minus"
+            color={productQuantity === 1 ? 'gray4' : 'backgroundContrast'}
+            onPress={() => handleClickUpdateProductQuantity('less')}
+          />
 
-          <Text bold>
-            <Text>{productQuantity}</Text>
+          <Text style={{minWidth: 20}} textAlign="center">
+            {productQuantity}
           </Text>
 
-          <TouchableOpacityBox>
-            <Text
-              semiBold
-              onPress={() => handleClickUpdateProductQuantity('more')}>
-              +
-            </Text>
-          </TouchableOpacityBox>
+          <Icon
+            name="add"
+            onPress={() => handleClickUpdateProductQuantity('more')}
+          />
         </Box>
       </Box>
 
       <Button
         text="Adicionar ao carrinho"
-        onPress={() =>
-          handleAddToCart({
-            productId: '1',
-            productName: 'Produto 1',
-            value: calculatedProductPrice,
+        onPress={async () => {
+          await handleAddToCart({
+            ...productContext,
+            price: calculatedProductPrice,
             quantity: productQuantity,
-          })
-        }
+          });
+
+          navigation.navigate('CartScreen');
+        }}
       />
     </Box>
   );
