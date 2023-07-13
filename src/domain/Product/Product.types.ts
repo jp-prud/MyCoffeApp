@@ -24,7 +24,7 @@ export interface ProductSummaryProps {
 
 export interface ProductSummaryCheckoutProps extends ProductSummaryProps {
   quantity: number;
-  options: {
+  options?: {
     [key: string]: string;
   };
 }
