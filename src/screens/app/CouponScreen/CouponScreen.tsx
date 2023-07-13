@@ -1,37 +1,51 @@
+import {ListRenderItemInfo} from 'react-native';
+
+import {CouponProps, coupons} from '@domain';
+import {useForm} from 'react-hook-form';
+import {FlatList} from 'react-native-gesture-handler';
+
 import {
   Box,
   FormTextInput,
-  Icon,
   Screen,
   Text,
   TouchableOpacityBox,
 } from '@components';
 import {AppScreenProps} from '@routes';
 
+import {CouponItem} from './components/CouponItem';
+
 export function CouponScreen({}: AppScreenProps<'CouponScreen'>) {
+  const {control} = useForm();
+
+  function renderCouponComponent({item}: ListRenderItemInfo<CouponProps>) {
+    return <CouponItem coupon={item} />;
+  }
+
   return (
     <Screen canGoBack>
-      <Text>Cupom</Text>
+      <Box
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+        mb="s32">
+        <FormTextInput
+          control={control}
+          name="coupon"
+          placeholder="Adicione o código do cupom"
+        />
 
-      <Box>
-        <FormTextInput />
         <TouchableOpacityBox>
           <Text>Adicionar</Text>
         </TouchableOpacityBox>
       </Box>
 
-      <Box>
-        <Box>
-          <Icon name="arrow" />
-
-          <Box>
-            <Text>Sem cupom</Text>
-            <Text>Nenhum cupom aplicado</Text>
-          </Box>
-        </Box>
-
-        <Text>Válido para pedidos acima de R$ 15</Text>
-      </Box>
+      <FlatList
+        data={coupons}
+        renderItem={renderCouponComponent}
+        keyExtractor={item => item.id}
+        contentContainerStyle={{gap: 16}}
+      />
     </Screen>
   );
 }
