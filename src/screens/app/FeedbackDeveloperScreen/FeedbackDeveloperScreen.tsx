@@ -1,7 +1,7 @@
 import {zodResolver} from '@hookform/resolvers/zod';
 import {useForm} from 'react-hook-form';
 
-import {Box, Button, FormTextInput, Screen} from '@components';
+import {Box, Button, FormTextInput, Screen, Text} from '@components';
 import {AppScreenProps} from '@routes';
 
 import {
@@ -28,6 +28,16 @@ export function FeedbackDeveloperScreen({}: AppScreenProps<'FeedbackDeveloperScr
 
   return (
     <Screen canGoBack>
+      <Box gap="s4" mb="s24">
+        <Text preset="paragraphLarge" semiBold>
+          Feedback
+        </Text>
+
+        <Text color="gray1">
+          Envie um feedback para a nossa equipe de desenvolvedores.
+        </Text>
+      </Box>
+
       <Box gap="s16">
         <FormTextInput
           control={control}

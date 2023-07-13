@@ -26,7 +26,7 @@ export function ProfileScreen({
         <Text preset="headingMedium">Meu perfil</Text>
         <Box mt="s32" gap="s16">
           <ProfileNavigator icon="heart" title="Salvos" isSibling />
-          <ProfileNavigator icon="heart" title="Solicite ajuda" />
+          <ProfileNavigator icon="messageText" title="Solicite ajuda" />
         </Box>
 
         <Box mt="s32" gap="s16">
@@ -83,6 +83,7 @@ export function ProfileScreen({
           <ProfileNavigator
             title="Feedback"
             subtitle="Envie um feedback para a nossa equipe de desenvolvimento"
+            onPress={() => handleClickNavigate('FeedbackDeveloperScreen')}
           />
         </Box>
       </Screen>
