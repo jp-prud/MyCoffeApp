@@ -8,6 +8,7 @@ import {
   TouchableOpacityBox,
   Text,
   Icon,
+  BoxProps,
 } from '@components';
 import {useAppTheme, useAppSafeArea} from '@hooks';
 
@@ -16,7 +17,7 @@ import {
   ViewContainer,
 } from './components/ScreenContainers';
 
-interface ScreenProps {
+interface ScreenProps extends BoxProps {
   children: React.ReactNode;
   FooterComponent?: React.ReactNode;
   canGoBack?: boolean;
@@ -30,11 +31,14 @@ export function Screen({
   canGoBack = false,
   scrollable = false,
   FooterComponent,
+  style,
+  ...boxProps
 }: ScreenProps) {
   const {top, bottom} = useAppSafeArea();
   const {colors} = useAppTheme();
 
-  const Container = scrollable ? ScrollableViewContainer : ViewContainer;
+  const Container =
+    scrollable && !isLoading ? ScrollableViewContainer : ViewContainer;
 
   const {goBack} = useNavigation();
 
@@ -80,7 +84,16 @@ export function Screen({
       <Container backgroundColor={colors.background}>
         <Box
           paddingHorizontal="s24"
-          style={{paddingTop: top, paddingBottom: bottom}}>
+          style={[
+            {
+              paddingTop: top,
+              paddingBottom: bottom,
+              justifyContent: 'center',
+            },
+            style,
+          ]}
+          flex={1}
+          {...boxProps}>
           {canGoBack && !isLoading && renderBackButton()}
 
           {isLoading ? renderLoadingScreenState() : children}
