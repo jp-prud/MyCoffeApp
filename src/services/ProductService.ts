@@ -20,6 +20,8 @@ class ProductService {
         return;
       }
 
+      console.log({product});
+
       resolve(ProductMapper.toPresentation(product));
     });
   }

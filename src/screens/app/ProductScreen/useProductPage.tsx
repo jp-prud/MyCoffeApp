@@ -1,9 +1,10 @@
 import {useState, useEffect, useCallback, useMemo} from 'react';
 
 import {ProductPropsAPP} from '@domain';
-import ProductService from 'src/services/ProductService';
 
 import {AppScreenProps} from '@routes';
+
+import ProductService from '../../../services/ProductService';
 
 interface UseProductPageProps {}
 
@@ -12,7 +13,9 @@ export type UpdateOptionType = 'more' | 'less';
 export function useProductPage({
   route,
 }: UseProductPageProps & Pick<AppScreenProps<'ProductScreen'>, 'route'>) {
-  const [productContext, setProductContext] = useState({} as ProductPropsAPP);
+  const [productContext, setProductContext] = useState<
+    ProductPropsAPP | undefined
+  >(undefined);
   const [isLoading, setIsLoading] = useState(true);
   const [productQuantity, setProductQuantity] = useState(1);
 
@@ -29,10 +32,13 @@ export function useProductPage({
     [],
   );
 
-  const calculatedProductPrice = useMemo(
-    () => productContext?.price * productQuantity,
-    [productContext, productQuantity],
-  );
+  const calculatedProductPrice = useMemo(() => {
+    if (!productContext) {
+      return 0;
+    }
+
+    return productContext?.price * productQuantity;
+  }, [productContext, productQuantity]);
 
   useEffect(() => {
     (async () => {

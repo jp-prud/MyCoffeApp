@@ -1,5 +1,5 @@
 import {useOrderContext} from '@context';
-import {ProductProps} from '@domain';
+import {ProductPropsAPP} from '@domain';
 import {useNavigation} from '@react-navigation/native';
 
 import {Text, Box, Button, Icon} from '@components';
@@ -10,7 +10,7 @@ import {formatPrice} from '../../../../../utils';
 import {UpdateOptionType} from '../../useProductPage';
 
 interface FixedActionsContainer {
-  productContext: ProductProps;
+  productContext: ProductPropsAPP;
   calculatedProductPrice: number;
   productQuantity: number;
   handleClickUpdateProductQuantity(updateOption: UpdateOptionType): void;

@@ -27,6 +27,7 @@ export function ProductScreen({route}: AppScreenProps<'ProductScreen'>) {
     <Screen
       canGoBack
       isLoading={isLoading}
+      scrollable
       FooterComponent={
         productContext && (
           <FixedActionsContainer
