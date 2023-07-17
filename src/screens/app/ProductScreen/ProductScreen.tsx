@@ -1,8 +1,4 @@
-import {useState, useEffect} from 'react';
 import {Image} from 'react-native';
-
-import {ProductProps} from '@domain';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
 import {
   Screen,
@@ -12,31 +8,14 @@ import {
   Icon,
   TextInput,
 } from '@components';
-import {RootStackParamList} from '@routes';
-
-import ProductService from '../../../services/ProductService';
+import {AppScreenProps} from '@routes';
 
 import {FixedActionsContainer} from './components/FixedActionsContainer/FixedActionsContainer';
 import {OptionsSelector} from './components/OptionsSelector/OptionsSelector';
+import {useProductPage} from './useProductPage';
 
-type ScreenProps = NativeStackScreenProps<RootStackParamList, 'ProductScreen'>;
-
-export function ProductScreen({route}: ScreenProps) {
-  const [productContext, setProductContext] = useState<ProductProps | null>(
-    null,
-  );
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    (async () => {
-      const response = await ProductService.getProductById(
-        route.params.productId,
-      );
-
-      setProductContext(response);
-      setIsLoading(false);
-    })();
-  }, [route.params.productId]);
+export function ProductScreen({route}: AppScreenProps<'ProductScreen'>) {
+  const {productContext, isLoading} = useProductPage({route});
 
   return (
     <Screen
