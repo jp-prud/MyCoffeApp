@@ -1,5 +1,3 @@
-import {useCallback, useState, useMemo} from 'react';
-
 import {useOrderContext} from '@context';
 import {ProductProps} from '@domain';
 import {useNavigation} from '@react-navigation/native';
@@ -9,39 +7,26 @@ import {useAppSafeArea} from '@hooks';
 import {$shadowProps} from '@theme';
 
 import {formatPrice} from '../../../../../utils';
+import {UpdateOptionType} from '../../useProductPage';
 
-type UpdateOptionType = 'more' | 'less';
+interface FixedActionsContainer {
+  productContext: ProductProps;
+  calculatedProductPrice: number;
+  productQuantity: number;
+  handleClickUpdateProductQuantity(updateOption: UpdateOptionType): void;
+}
 
 export function FixedActionsContainer({
   productContext,
-}: {
-  productContext: ProductProps;
-}) {
+  calculatedProductPrice,
+  productQuantity,
+  handleClickUpdateProductQuantity,
+}: FixedActionsContainer) {
   const {bottom} = useAppSafeArea();
 
   const {handleAddToCart} = useOrderContext();
 
   const navigation = useNavigation();
-
-  const [productQuantity, setProductQuantity] = useState(1);
-
-  const handleClickUpdateProductQuantity = useCallback(
-    (updateOption: UpdateOptionType) => {
-      if (updateOption === 'less') {
-        setProductQuantity(prevState => (prevState === 1 ? 1 : prevState - 1));
-
-        return;
-      }
-
-      setProductQuantity(prevState => prevState + 1);
-    },
-    [],
-  );
-
-  const calculatedProductPrice = useMemo(
-    () => productContext.price * productQuantity,
-    [productContext, productQuantity],
-  );
 
   return (
     <Box

@@ -15,7 +15,13 @@ import {OptionsSelector} from './components/OptionsSelector/OptionsSelector';
 import {useProductPage} from './useProductPage';
 
 export function ProductScreen({route}: AppScreenProps<'ProductScreen'>) {
-  const {productContext, isLoading} = useProductPage({route});
+  const {
+    productContext,
+    isLoading,
+    calculatedProductPrice,
+    handleClickUpdateProductQuantity,
+    productQuantity,
+  } = useProductPage({route});
 
   return (
     <Screen
@@ -23,7 +29,12 @@ export function ProductScreen({route}: AppScreenProps<'ProductScreen'>) {
       isLoading={isLoading}
       FooterComponent={
         productContext && (
-          <FixedActionsContainer productContext={productContext} />
+          <FixedActionsContainer
+            productContext={productContext}
+            calculatedProductPrice={calculatedProductPrice}
+            handleClickUpdateProductQuantity={handleClickUpdateProductQuantity}
+            productQuantity={productQuantity}
+          />
         )
       }>
       {productContext && (
