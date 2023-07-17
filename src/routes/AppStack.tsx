@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import {
   AboutUsScreen,
+  CategoryScreen,
   CouponScreen,
   FavoriteScreen,
   FeedbackDeveloperScreen,
@@ -28,7 +29,7 @@ const {Navigator, Screen} = createNativeStackNavigator<AppStackParamList>();
 export function AppStackScreen() {
   return (
     <Navigator
-      initialRouteName="FeedbackDeveloperScreen"
+      initialRouteName="AppTabNavigator"
       screenOptions={NAVIGATOR_STACK_SCREEN_OPTIONS}>
       <Screen name="AppTabNavigator" component={TabNavigationStack} />
       <Screen name="FavoriteScreen" component={FavoriteScreen} />
@@ -36,6 +37,7 @@ export function AppStackScreen() {
 
       <Screen name="AboutUsScreen" component={AboutUsScreen} />
       <Screen name="ProductScreen" component={ProductScreen} />
+      <Screen name="CategoryScreen" component={CategoryScreen} />
 
       <Screen name="SuccessOrderScreen" component={SuccessOrderScreen} />
       <Screen name="CouponScreen" component={CouponScreen} />

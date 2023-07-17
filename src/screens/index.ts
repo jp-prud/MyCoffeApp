@@ -14,6 +14,7 @@ export * from './app/CouponScreen/CouponScreen';
 export * from './app/SuccessOrderScreen/SuccessOrderScreen';
 
 export * from './app/ProductScreen/ProductScreen';
+export * from './app/CategoryScreen/CategoryScreen';
 
 export * from './app/ProfileScreen/ProfileScreen';
 export * from './app/ManageAccountScreen/ManageAccountScreen';

@@ -28,6 +28,9 @@ export type AppStackParamList = {
   ProductScreen: {
     productId: string;
   };
+  CategoryScreen: {
+    categoryId: string;
+  };
   ManageAccountScreen: undefined;
   NotificationsAccountConfigScreen: undefined;
   PrivacyPolicyScreen: undefined;
