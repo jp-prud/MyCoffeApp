@@ -1,42 +1,39 @@
-import {useEffect, useState} from 'react';
-import {ScrollView} from 'react-native';
+import {ListRenderItemInfo} from 'react-native';
 
-import {ProductSummaryProps} from '@domain';
+import {ProductSummaryProps, useProductList} from '@domain';
+import {FlatList} from 'react-native-gesture-handler';
 
 import {Box, BoxProps} from '@components';
 
-import ProductShelfService from '../../services/ProductService';
 import {ProductSummary} from '../ProductSummary/ProductSummary';
 
 interface ProductShelfProps {
   categoryId: string;
+  maxItems?: number;
 }
 
 export function ProductShelf({
   categoryId,
+  maxItems = 6,
   ...boxProps
 }: ProductShelfProps & BoxProps) {
-  const [products, setProducts] = useState<ProductSummaryProps[]>([]);
+  const {productsDataListPage} = useProductList(categoryId);
 
-  useEffect(() => {
-    (async () => {
-      const response = (await ProductShelfService.getProductsFromCategory(
-        categoryId,
-      )) as unknown as ProductSummaryProps[];
-
-      setProducts(response);
-    })();
-  }, [categoryId]);
+  function renderItem({
+    item: produdct,
+  }: ListRenderItemInfo<ProductSummaryProps>) {
+    return <ProductSummary product={produdct} />;
+  }
 
   return (
     <Box flexDirection="row" gap="s16" {...boxProps}>
-      <ScrollView
+      <FlatList
         horizontal
-        contentContainerStyle={{gap: 16, paddingBottom: 2}}>
-        {products.map(product => (
-          <ProductSummary key={product.id} product={product} />
-        ))}
-      </ScrollView>
+        contentContainerStyle={{gap: 16, paddingBottom: 2}}
+        data={productsDataListPage.data.slice(0, maxItems)}
+        keyExtractor={item => item.id}
+        renderItem={renderItem}
+      />
     </Box>
   );
 }

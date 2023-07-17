@@ -8,6 +8,7 @@ import {Text, Box} from '@components';
 
 export function ProductSummary({product}: {product: ProductSummaryProps}) {
   const navigate = useNavigation();
+
   return (
     <Pressable
       onPress={() =>
