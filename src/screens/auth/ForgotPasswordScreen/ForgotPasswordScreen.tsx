@@ -3,13 +3,14 @@ import {useForm} from 'react-hook-form';
 
 import {Screen, Box, Text, Button, FormTextInput} from '@components';
 import {useResetNavigationSuccess} from '@hooks';
+import {AuthScreenProps} from '@routes';
 
 import {
   ForgotPasswordFormSchema,
   ForgotPasswordFormSchemaTypes,
 } from './forgotPasswordFormSchema';
 
-export function ForgotPasswordScreen() {
+export function ForgotPasswordScreen({}: AuthScreenProps<'ForgotPasswordScreen'>) {
   const {reset} = useResetNavigationSuccess();
 
   const {control, formState, handleSubmit} =
