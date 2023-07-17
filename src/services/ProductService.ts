@@ -1,11 +1,12 @@
-import {ProductProps, productMockAPI} from '@domain';
+import {ProductPropsAPP, productMockAPI} from '@domain';
 import {Page} from '@types';
 import {delay} from '@utils';
 
 import APIMapper from './mappers/APIMapper';
+import ProductMapper from './mappers/ProductMapper';
 
 class ProductService {
-  public async getProductById(productId: string): Promise<ProductProps> {
+  public async getProductById(productId: string): Promise<ProductPropsAPP> {
     await delay(100);
 
     return new Promise(resolve => {
@@ -14,25 +15,25 @@ class ProductService {
       );
 
       if (!product) {
-        resolve(productMockAPI.data[0]);
+        resolve(ProductMapper.toPresentation(productMockAPI.data[0]));
 
         return;
       }
 
-      resolve(product);
+      resolve(ProductMapper.toPresentation(product));
     });
   }
 
   public async getProductsFromCategory(
     categoryId: string,
-  ): Promise<Page<ProductProps>> {
+  ): Promise<Page<ProductPropsAPP>> {
     console.log({categoryId});
 
     await delay();
 
     return new Promise(resolve =>
       resolve({
-        data: productMockAPI.data,
+        data: productMockAPI.data.map(ProductMapper.toPresentation),
         meta: APIMapper.toMetaDataPresentation(productMockAPI.meta),
       }),
     );

@@ -1,9 +1,25 @@
-export interface ProductProps {
+export interface ProductPropsAPP {
   id: string;
   name: string;
   subtitle: string;
   price: number;
   description: string;
+  categoryId: string;
+  images: [
+    {
+      url: string;
+      alt: string;
+    },
+  ];
+}
+
+export interface ProductPropsAPI {
+  id: string;
+  name: string;
+  subtitle: string;
+  price: number;
+  description: string;
+  category_id: string;
   images: [
     {
       url: string;

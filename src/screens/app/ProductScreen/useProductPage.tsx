@@ -1,6 +1,6 @@
 import {useState, useEffect, useCallback, useMemo} from 'react';
 
-import {ProductProps} from '@domain';
+import {ProductPropsAPP} from '@domain';
 import ProductService from 'src/services/ProductService';
 
 import {AppScreenProps} from '@routes';
@@ -12,7 +12,7 @@ export type UpdateOptionType = 'more' | 'less';
 export function useProductPage({
   route,
 }: UseProductPageProps & Pick<AppScreenProps<'ProductScreen'>, 'route'>) {
-  const [productContext, setProductContext] = useState({} as ProductProps);
+  const [productContext, setProductContext] = useState({} as ProductPropsAPP);
   const [isLoading, setIsLoading] = useState(true);
   const [productQuantity, setProductQuantity] = useState(1);
 
