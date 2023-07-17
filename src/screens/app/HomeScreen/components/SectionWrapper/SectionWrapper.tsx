@@ -1,21 +1,24 @@
 import {useNavigation} from '@react-navigation/native';
 
-import {AppStackParamList} from '@routes';
+import {AppStackParamList, RootStackParamList} from '@routes';
 
 import {Box, TouchableOpacityBox} from '../../../../../components/Box/Box';
 import {Text} from '../../../../../components/Text/Text';
 
-interface SectionWrapperProps {
+interface SectionWrapperProps<RouteName extends keyof AppStackParamList> {
   children: React.ReactNode;
   title: string;
-  navigateTo?: keyof AppStackParamList;
+  navigateTo?: {
+    route: RouteName;
+    params?: RootStackParamList[RouteName];
+  };
 }
 
-export function SectionWrapper({
+export function SectionWrapper<RouteName extends keyof AppStackParamList>({
   title,
   navigateTo,
   children,
-}: SectionWrapperProps) {
+}: SectionWrapperProps<RouteName>) {
   const navigation = useNavigation();
 
   return (
@@ -30,7 +33,11 @@ export function SectionWrapper({
         {navigateTo && (
           <TouchableOpacityBox
             hitSlop={4}
-            onPress={() => navigation.navigate(navigateTo)}>
+            onPress={() =>
+              navigation.navigate(navigateTo.route, {
+                ...navigateTo?.params,
+              })
+            }>
             <Text
               preset="paragraphSmall"
               color="buttonPrimary"
