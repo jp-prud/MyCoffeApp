@@ -9,6 +9,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "start": "react-native start",
     "test": "jest --verbose",
+    "test:watch": "jest --watchAll",
+    "test:coverage": "jest --verbose --coverage",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -91,6 +93,7 @@
       "jsx",
       "json",
       "node"
-    ]
+    ],
+    "collectCoverage": false
   }
 }

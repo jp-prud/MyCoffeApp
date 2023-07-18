@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1689718407082" clover="3.2.0">
+  <project timestamp="1689718407083" name="All files">
+    <metrics statements="179" coveredstatements="33" conditionals="133" coveredconditionals="3" methods="91" coveredmethods="6" elements="403" coveredelements="42" complexity="0" loc="179" ncloc="179" packages="29" files="71" classes="71"/>
+    <package name="src.assets.icons">
+      <metrics statements="30" coveredstatements="0" conditionals="58" coveredconditionals="0" methods="30" coveredmethods="0"/>
+      <file name="AddIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\AddIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="ArrowIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\ArrowIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="BagFillIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\BagFillIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="BagIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\BagIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="BookmarkFillIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\BookmarkFillIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="BookmarkIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\BookmarkIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="CalendarIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\CalendarIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="CallIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\CallIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="CheckRoundIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\CheckRoundIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+      <file name="ChevronIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\ChevronIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="ClockIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\ClockIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="EyeOffIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\EyeOffIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="EyeOnIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\EyeOnIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="HeartIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\HeartIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="HomeFillIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\HomeFillIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="HomeIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\HomeIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="LocationFilledIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\LocationFilledIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="LocationIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\LocationIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="MessageRoundIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\MessageRoundIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+      <file name="MessageTextIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\MessageTextIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="MinusIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\MinusIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="NotificationIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\NotificationIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="SearchIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\SearchIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="SendFillIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\SendFillIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="SendIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\SendIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="Tagicon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\Tagicon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="TicketIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\TicketIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="TrashIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\TrashIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="UserFillIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\UserFillIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="UserIcon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\assets\icons\UserIcon.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\Estudos\projetos\MyCoffeApp\src\components\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.components.ActivityIndicator">
+      <metrics statements="2" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="ActivityIndicator.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\ActivityIndicator\ActivityIndicator.tsx">
+        <metrics statements="2" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.BottomSheet">
+      <metrics statements="30" coveredstatements="4" conditionals="8" coveredconditionals="0" methods="11" coveredmethods="0"/>
+      <file name="BottomSheet.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\BottomSheet\BottomSheet.tsx">
+        <metrics statements="30" coveredstatements="4" conditionals="8" coveredconditionals="0" methods="11" coveredmethods="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="54" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="63" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="64" count="0" type="stmt"/>
+        <line num="65" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="66" count="0" type="stmt"/>
+        <line num="70" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="78" count="0" type="stmt"/>
+        <line num="84" count="0" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="91" count="0" type="stmt"/>
+        <line num="96" count="0" type="stmt"/>
+        <line num="100" count="0" type="stmt"/>
+        <line num="129" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Box">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="Box.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\Box\Box.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Button">
+      <metrics statements="3" coveredstatements="1" conditionals="7" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Button.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\Button\Button.tsx">
+        <metrics statements="2" coveredstatements="0" conditionals="7" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="26" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="28" count="0" type="stmt"/>
+      </file>
+      <file name="buttonPresets.ts" path="C:\Estudos\projetos\MyCoffeApp\src\components\Button\buttonPresets.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="17" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.CelebrationCard">
+      <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="CelebrationCard.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\CelebrationCard\CelebrationCard.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="12" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Form">
+      <metrics statements="4" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="FormPasswordInput.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\Form\FormPasswordInput.tsx">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+      </file>
+      <file name="FormTextInput.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\Form\FormTextInput.tsx">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Icon">
+      <metrics statements="7" coveredstatements="1" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Icon.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\Icon\Icon.tsx">
+        <metrics statements="7" coveredstatements="1" conditionals="3" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="58" count="0" type="stmt"/>
+        <line num="60" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="68" count="0" type="stmt"/>
+        <line num="71" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.PasswordInput">
+      <metrics statements="3" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="PasswordInput.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\PasswordInput\PasswordInput.tsx">
+        <metrics statements="3" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.ProductShelf">
+      <metrics statements="5" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="ProductShelf.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\ProductShelf\ProductShelf.tsx">
+        <metrics statements="5" coveredstatements="0" conditionals="3" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.ProductShelf.components">
+      <metrics statements="4" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="EmptyProductShelf.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\ProductShelf\components\EmptyProductShelf.tsx">
+        <metrics statements="4" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.ProductSummary">
+      <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="ProductSummary.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\ProductSummary\ProductSummary.tsx">
+        <metrics statements="3" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Screen">
+      <metrics statements="7" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="Screen.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\Screen\Screen.tsx">
+        <metrics statements="7" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="41" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="73" count="0" type="stmt"/>
+        <line num="80" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Screen.components">
+      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="ScreenContainers.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\Screen\components\ScreenContainers.tsx">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.ScreenTabBarButton">
+      <metrics statements="1" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="ScreenTabBarButton.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\ScreenTabBarButton\ScreenTabBarButton.tsx">
+        <metrics statements="1" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.Text">
+      <metrics statements="11" coveredstatements="9" conditionals="8" coveredconditionals="3" methods="2" coveredmethods="2"/>
+      <file name="Text.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\Text\Text.tsx">
+        <metrics statements="11" coveredstatements="9" conditionals="8" coveredconditionals="3" methods="2" coveredmethods="2"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+        <line num="30" count="2" type="stmt"/>
+        <line num="46" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="50" count="2" type="cond" truecount="2" falsecount="1"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="62" count="1" type="stmt"/>
+        <line num="76" count="1" type="stmt"/>
+        <line num="89" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components.TextInput">
+      <metrics statements="6" coveredstatements="1" conditionals="14" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="TextInput.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\components\TextInput\TextInput.tsx">
+        <metrics statements="6" coveredstatements="1" conditionals="14" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="88" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.domain">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\Estudos\projetos\MyCoffeApp\src\domain\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="src.domain.Celebration">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="Celebration.types.ts" path="C:\Estudos\projetos\MyCoffeApp\src\domain\Celebration\Celebration.types.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="celebrationsShelfMock.ts" path="C:\Estudos\projetos\MyCoffeApp\src\domain\Celebration\celebrationsShelfMock.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.domain.Coupon">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="Coupon.types.ts" path="C:\Estudos\projetos\MyCoffeApp\src\domain\Coupon\Coupon.types.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="couponMocks.ts" path="C:\Estudos\projetos\MyCoffeApp\src\domain\Coupon\couponMocks.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.domain.Product">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="Product.types.ts" path="C:\Estudos\projetos\MyCoffeApp\src\domain\Product\Product.types.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="productMocks.ts" path="C:\Estudos\projetos\MyCoffeApp\src\domain\Product\productMocks.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="186" count="1" type="stmt"/>
+        <line num="204" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.domain.Product.useCases">
+      <metrics statements="15" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="useProductList.tsx" path="C:\Estudos\projetos\MyCoffeApp\src\domain\Product\useCases\useProductList.tsx">
+        <metrics statements="15" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.hooks">
+      <metrics statements="14" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="0"/>
+      <file name="index.ts" path="C:\Estudos\projetos\MyCoffeApp\src\hooks\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="useAppSafeArea.ts" path="C:\Estudos\projetos\MyCoffeApp\src\hooks\useAppSafeArea.ts">
+        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+      </file>
+      <file name="useAppTheme.ts" path="C:\Estudos\projetos\MyCoffeApp\src\hooks\useAppTheme.ts">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="useBottomSheet.ts" path="C:\Estudos\projetos\MyCoffeApp\src\hooks\useBottomSheet.ts">
+        <metrics statements="7" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+      </file>
+      <file name="useResetNavigationSuccess.ts" path="C:\Estudos\projetos\MyCoffeApp\src\hooks\useResetNavigationSuccess.ts">
+        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.services">
+      <metrics statements="13" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
+      <file name="ProductService.ts" path="C:\Estudos\projetos\MyCoffeApp\src\services\ProductService.ts">
+        <metrics statements="13" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.services.mappers">
+      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <file name="APIMapper.ts" path="C:\Estudos\projetos\MyCoffeApp\src\services\mappers\APIMapper.ts">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+      <file name="ProductMapper.ts" path="C:\Estudos\projetos\MyCoffeApp\src\services\mappers\ProductMapper.ts">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.theme">
+      <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="index.ts" path="C:\Estudos\projetos\MyCoffeApp\src\theme\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="theme.ts" path="C:\Estudos\projetos\MyCoffeApp\src\theme\theme.ts">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="66" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.utils">
+      <metrics statements="2" coveredstatements="1" conditionals="1" coveredconditionals="0" methods="4" coveredmethods="1"/>
+      <file name="delay.ts" path="C:\Estudos\projetos\MyCoffeApp\src\utils\delay.ts">
+        <metrics statements="1" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="2" count="0" type="stmt"/>
+      </file>
+      <file name="formatPrice.ts" path="C:\Estudos\projetos\MyCoffeApp\src\utils\formatPrice.ts">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="2" count="1" type="stmt"/>
+      </file>
+      <file name="index.ts" path="C:\Estudos\projetos\MyCoffeApp\src\utils\index.ts">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="test">
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="test-utils.tsx" path="C:\Estudos\projetos\MyCoffeApp\test\test-utils.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
