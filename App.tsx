@@ -1,11 +1,11 @@
 import {AuthContextProvider} from '@context';
+import {OrderContextProvider} from '@context';
 import {ThemeProvider} from '@shopify/restyle';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
-import {OrderContextProvider} from './src/context/OrderContext/OrderContext';
-import {Router} from './src/routes/Routes';
-import {theme} from './src/theme/theme';
+import {Router} from '@routes';
+import {theme} from '@theme';
 
 function App(): JSX.Element {
   return (
