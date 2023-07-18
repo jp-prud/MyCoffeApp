@@ -1,7 +1,7 @@
 import {ListRenderItemInfo} from 'react-native';
 
 import {ProductPropsAPP} from '@domain';
-import {FlatList} from 'react-native-gesture-handler';
+import {FlatList, RefreshControl} from 'react-native-gesture-handler';
 
 import {ProductSummary} from '@components';
 import {Screen} from '@components';
@@ -38,6 +38,10 @@ export function CategoryScreen({route}: AppScreenProps<'CategoryScreen'>) {
         keyExtractor={item => item.id}
         renderItem={renderItem}
         numColumns={2}
+        refreshing={isLoading}
+        refreshControl={
+          <RefreshControl refreshing={isLoading} onRefresh={handleRefetcData} />
+        }
         contentContainerStyle={{
           gap: 16,
           paddingBottom: bottom * 2.5,

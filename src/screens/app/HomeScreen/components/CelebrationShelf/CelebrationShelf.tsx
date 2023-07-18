@@ -31,6 +31,7 @@ export function CelebrationShelf() {
       renderItem={renderItem}
       horizontal
       contentContainerStyle={{paddingBottom: 2, gap: 16}}
+      showsHorizontalScrollIndicator={false}
     />
   );
 }

@@ -18,6 +18,8 @@ export function useProductList(categoryId: string) {
 
   const fetchData = useCallback(async () => {
     try {
+      setIsLoading(true);
+
       setError(false);
 
       const response = await ProductService.getProductsFromCategory(categoryId);
