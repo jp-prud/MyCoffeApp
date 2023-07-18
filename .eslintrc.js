@@ -1,7 +1,7 @@
 module.exports = {
   root: true,
-  extends: '@react-native-community',
-  plugins: ['import'],
+  extends: ['@react-native-community', 'plugin:jest/recommended'],
+  plugins: ['import', '@typescript-eslint'],
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/jsx-filename-extension': [
