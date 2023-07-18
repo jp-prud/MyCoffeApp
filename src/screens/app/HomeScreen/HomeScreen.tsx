@@ -89,11 +89,22 @@ export function HomeScreen({navigation}: AppTabScreenProps<'HomeScreen'>) {
           />
         </Box>
 
-        <SectionWrapper title="Populares" navigateTo="NotificationScreen">
+        <SectionWrapper<'CategoryScreen'>
+          title="Mais vistos"
+          navigateTo={{
+            route: 'CategoryScreen',
+            params: {
+              categoryId: '1',
+            },
+          }}>
           <ProductShelf categoryId="1" />
         </SectionWrapper>
 
-        <SectionWrapper title="Nossos Atendimentos" navigateTo="AboutUsScreen">
+        <SectionWrapper<'AboutUsScreen'>
+          title="Nossos eventos"
+          navigateTo={{
+            route: 'AboutUsScreen',
+          }}>
           <CelebrationShelf />
         </SectionWrapper>
       </Screen>

@@ -7,6 +7,8 @@ import {Box, BoxProps} from '@components';
 
 import {ProductSummary} from '../ProductSummary/ProductSummary';
 
+import {EmptyProductShelf} from './components/EmptyProductShelf';
+
 interface ProductShelfProps {
   categoryId: string;
   maxItems?: number;
@@ -17,7 +19,7 @@ export function ProductShelf({
   maxItems = 6,
   ...boxProps
 }: ProductShelfProps & BoxProps) {
-  const {productsDataListPage} = useProductList(categoryId);
+  const {productsDataListPage, isLoading} = useProductList(categoryId);
 
   function renderItem({
     item: produdct,
@@ -25,14 +27,24 @@ export function ProductShelf({
     return <ProductSummary product={produdct} />;
   }
 
+  function renderEmptyComponent() {
+    return <EmptyProductShelf isLoading={isLoading} />;
+  }
+
   return (
-    <Box flexDirection="row" gap="s16" {...boxProps}>
+    <Box flexDirection="row" gap="s16" {...boxProps} minHeight={226}>
       <FlatList
         horizontal
-        contentContainerStyle={{gap: 16, paddingBottom: 2}}
-        data={productsDataListPage.data.slice(0, maxItems)}
+        contentContainerStyle={{
+          gap: 16,
+          flex: productsDataListPage?.data.length === 0 ? 1 : undefined,
+          paddingBottom: 2,
+        }}
+        data={productsDataListPage?.data.slice(0, maxItems)}
         keyExtractor={item => item.id}
         renderItem={renderItem}
+        ListEmptyComponent={renderEmptyComponent}
+        showsHorizontalScrollIndicator={false}
       />
     </Box>
   );
