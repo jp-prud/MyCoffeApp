@@ -1,4 +1,4 @@
-import {useCallback, useMemo, useState} from 'react';
+import {useCallback} from 'react';
 
 import {useOrderContext} from '@context';
 import {formatPrice} from '@utils';
@@ -7,44 +7,13 @@ import {Box, Button, Screen, Text} from '@components';
 import {AppTabScreenProps} from '@routes';
 import {$shadowProps} from '@theme';
 
-import {MiniCartStep, CheckoutStep, Steps, StepProps} from './steps';
+import {useCartScreen} from './useCartScreen';
 
 export function CartScreen({}: AppTabScreenProps<'CartScreen'>) {
   const {orderItems, value} = useOrderContext();
 
-  const [currentStep, setCurrentStep] = useState<Steps>('MiniCartStep');
-
-  const handleClickToggleStep = useCallback(() => {
-    return setCurrentStep(prevState =>
-      prevState === 'MiniCartStep' ? 'CheckoutStep' : 'MiniCartStep',
-    );
-  }, []);
-
-  const steps = useMemo(() => {
-    const mappedSteps: StepProps = {
-      MiniCartStep: {
-        step: MiniCartStep,
-        fixedContainer: {
-          label: 'Continuar',
-          function: () => handleClickToggleStep(),
-        },
-      },
-      CheckoutStep: {
-        step: CheckoutStep,
-        fixedContainer: {
-          label: 'Finalizar Pedido',
-          function: () => {},
-        },
-      },
-    };
-
-    return mappedSteps;
-  }, [handleClickToggleStep]);
-
-  const CurretStep = useMemo(
-    () => steps[currentStep].step,
-    [steps, currentStep],
-  );
+  const {steps, CurretStep, currentStep, handleClickToggleStep} =
+    useCartScreen();
 
   const renderFooterComponent = useCallback(() => {
     return (
