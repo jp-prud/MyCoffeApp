@@ -10,7 +10,7 @@
     "start": "react-native start",
     "test": "jest --verbose",
     "test:watch": "jest --watchAll",
-    "test:coverage": "jest --verbose --coverage",
+    "test:coverage": "jest --verbose --coverage -u",
     "prepare": "husky install"
   },
   "dependencies": {

@@ -13,11 +13,13 @@ jest.mock('react-native-reanimated', () => {
 
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 
+export const mockedNavigate = jest.fn();
+
 jest.mock('@react-navigation/native', () => {
   return {
     useNavigation: () => {
       return {
-        navigate: jest.fn(),
+        navigate: mockedNavigate,
         goBack: jest.fn(),
       };
     },
