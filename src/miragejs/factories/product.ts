@@ -1,14 +1,14 @@
-import { ProductProps, productMock } from '@domain';
+import { ProductPropsAPP, productMockAPI } from '@domain';
 import { faker } from '@faker-js/faker';
 import { Factory } from 'miragejs';
 
 import { randomNumber } from './utils';
 
-const productImagesUrl = productMock.map((product) => product.images[0].url);
+const productImagesUrl = productMockAPI.data.map((product) => product.images[0].url);
 
-const productName = productMock.map((product) => product.name);
+const productName = productMockAPI.data.map((product) => product.name);
 
-export const productFactory = Factory.extend<Partial<ProductProps>>({
+export const productFactory = Factory.extend<Partial<ProductPropsAPP>>({
   id() {
     return faker.string.uuid();
   },
