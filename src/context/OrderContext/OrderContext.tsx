@@ -1,6 +1,6 @@
 import {createContext, useContext, useState, useCallback, useMemo} from 'react';
 
-import {ProductSummaryCheckoutProps, productMock} from '@domain';
+import {ProductSummaryCheckoutProps, productCartMock} from '@domain';
 import {delay} from '@utils';
 
 interface ClientProfile {
@@ -23,7 +23,7 @@ const OrderContext = createContext({} as OrderContextProps);
 
 export function OrderContextProvider({children}: {children: React.ReactNode}) {
   const [orderItems, setOrderItems] =
-    useState<ProductSummaryCheckoutProps[]>(productMock);
+    useState<ProductSummaryCheckoutProps[]>(productCartMock);
   const [orderFormId] = useState('1');
   const [clientProfileData] = useState({} as ClientProfile);
 
