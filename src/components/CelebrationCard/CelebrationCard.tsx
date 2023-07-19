@@ -10,7 +10,12 @@ interface CelebrationCardProps {
 
 export function CelebrationCard({celebration}: CelebrationCardProps) {
   return (
-    <Box width={266} borderRadius="s16" overflow="hidden" elevation={1}>
+    <Box
+      width={266}
+      borderRadius="s16"
+      overflow="hidden"
+      elevation={1}
+      testID="celebration-card">
       <Image
         source={{
           height: 152,
