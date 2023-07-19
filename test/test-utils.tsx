@@ -12,8 +12,5 @@ const AllTheProviders: FC<{children: React.ReactNode}> = ({children}) => (
   <ThemeProvider theme={theme}>{children}</ThemeProvider>
 );
 
-const customRender = (ui: ReactElement, options?: Options) =>
+export const customRender = (ui: ReactElement, options?: Options) =>
   render(ui, {wrapper: AllTheProviders, ...options});
-
-export * from '@testing-library/react-native';
-export {customRender as render};

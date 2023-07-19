@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductSummary ProductData was passed should match snapshot 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  testID="product-summary"
+>
+  <View
+    style={
+      [
+        {
+          "borderRadius": 16,
+          "elevation": 1,
+          "overflow": "hidden",
+          "width": 154,
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        [
+          {
+            "borderRadius": 12,
+            "overflow": "hidden",
+            "width": 154,
+          },
+        ]
+      }
+    >
+      <Image
+        alt="Product 1"
+        source={
+          {
+            "height": 152,
+            "uri": "https://via.placeholder.com/150",
+            "width": 154,
+          }
+        }
+      />
+    </View>
+    <View
+      style={
+        [
+          {
+            "gap": 8,
+            "padding": 12,
+          },
+        ]
+      }
+    >
+      <Text
+        numberOfLines={1}
+        style={
+          [
+            {
+              "color": "#101010",
+            },
+            [
+              {
+                "fontSize": 14,
+                "lineHeight": 19.6,
+              },
+              {
+                "fontFamily": "Inter-Regular",
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        Product 1
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "color": "#101010",
+            },
+            [
+              {
+                "fontSize": 14,
+                "lineHeight": 19.6,
+              },
+              {
+                "fontFamily": "Inter-Bold",
+              },
+              undefined,
+            ],
+          ]
+        }
+      >
+        R$ 100,00
+      </Text>
+    </View>
+  </View>
+</View>
+`;
