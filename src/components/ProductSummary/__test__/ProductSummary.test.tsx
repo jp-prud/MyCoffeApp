@@ -1,46 +1,39 @@
 import React from 'react';
 
 import {ProductSummaryProps} from '@domain';
+import {mockedNavigate} from 'jestSetupFile';
 
-import {render} from '../../../../test/test-utils';
+import {render, fireEvent} from '../../../../test/index';
 import {ProductSummary} from '../ProductSummary';
 
+const productMock: ProductSummaryProps = {
+  id: '1',
+  name: 'Product 1',
+  price: 100,
+  images: [
+    {
+      url: 'https://via.placeholder.com/150',
+      alt: 'Product 1',
+    },
+  ],
+};
+
 describe('ProductSummary', () => {
-  describe('when ProductSummary passed', () => {
-    const productMock: ProductSummaryProps = {
-      id: '1',
-      name: 'Product 1',
-      price: 100,
-      images: [
-        {
-          url: 'https://via.placeholder.com/150',
-          alt: 'Product 1',
-        },
-      ],
-    };
+  describe('ProductData was passed', () => {
+    it('should match snapshot', () => {
+      const element = render(<ProductSummary product={productMock} />);
 
-    // eslint-disable-next-line jest/expect-expect
-    it('should render ProductSummary', () => {
-      render(<ProductSummary product={productMock} />);
+      expect(element).toMatchSnapshot();
     });
-  });
 
-  describe('when ProductSummary not passed', () => {
-    const productMock: ProductSummaryProps = {
-      id: '1',
-      name: 'Product 1',
-      price: 100,
-      images: [
-        {
-          url: 'https://via.placeholder.com/150',
-          alt: 'Product 1',
-        },
-      ],
-    };
+    it('should call function navigate to product page when product summary has been pressabled', () => {
+      const element = render(<ProductSummary product={productMock} />);
 
-    // eslint-disable-next-line jest/expect-expect
-    it('should render ProductSummary', () => {
-      render(<ProductSummary product={productMock} />);
+      fireEvent.press(element.getByTestId('product-summary'));
+
+      expect(mockedNavigate).toBeCalledWith('ProductScreen', {
+        productId: 'productMock.id',
+      });
     });
   });
 });

@@ -9,13 +9,16 @@ import {Text, Box} from '@components';
 export function ProductSummary({product}: {product: ProductSummaryProps}) {
   const navigate = useNavigation();
 
+  function handleClickNavigateProductPage() {
+    navigate.navigate('ProductScreen', {
+      productId: product.id,
+    });
+  }
+
   return (
     <Pressable
-      onPress={() =>
-        navigate.navigate('ProductScreen', {
-          productId: product.id,
-        })
-      }>
+      onPress={handleClickNavigateProductPage}
+      testID="product-summary">
       <Box width={154} borderRadius="s16" overflow="hidden" elevation={1}>
         <Box width={154} borderRadius="s12" overflow="hidden">
           <Image
