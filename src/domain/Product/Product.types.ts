@@ -44,3 +44,17 @@ export interface ProductSummaryCheckoutProps extends ProductSummaryProps {
     [key: string]: string;
   };
 }
+
+export interface CategoryProps {
+  id: string;
+  name: string;
+  descrption?: string;
+}
+
+export interface CategoryPagePropsAPI extends CategoryProps {
+  products: ProductPropsAPI[];
+}
+
+export interface CategoryPagePropsAPP extends CategoryProps {
+  products: ProductPropsAPP[];
+}

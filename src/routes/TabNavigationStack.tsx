@@ -4,7 +4,7 @@ import {
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 
-import {CartScreen, HomeScreen, OutletScreen, ProfileScreen} from '@screens';
+import {CartScreen, HomeScreen, OrdersScreen, ProfileScreen} from '@screens';
 
 import {AppTabNavigatorParamList} from './navigationTypes';
 import {TabBar} from './TabBar';
@@ -31,7 +31,7 @@ export function TabNavigationStack() {
 
       <Screen name="CartScreen" component={CartScreen} />
 
-      <Screen name="OutletScreen" component={OutletScreen} />
+      <Screen name="OrdersScreen" component={OrdersScreen} />
 
       <Screen name="ProfileScreen" component={ProfileScreen} />
     </Navigator>

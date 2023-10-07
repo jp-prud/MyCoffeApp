@@ -1,6 +1,10 @@
 import {PageAPI} from '@api';
 
-import {ProductPropsAPI, ProductSummaryCheckoutProps} from './Product.types';
+import {
+  CategoryPagePropsAPI,
+  ProductPropsAPI,
+  ProductSummaryCheckoutProps,
+} from './Product.types';
 
 export const productMockAPI: PageAPI<ProductPropsAPI> = {
   meta: {
@@ -179,6 +183,28 @@ export const productMockAPI: PageAPI<ProductPropsAPI> = {
           alt: 'Chocolate Quente',
         },
       ],
+    },
+  ],
+};
+
+export const productsCategoryMock: PageAPI<CategoryPagePropsAPI> = {
+  meta: {
+    total: 11,
+    per_page: 10,
+    current_page: 1,
+    last_page: 2,
+    first_page: 1,
+    first_page_url: '/?page=1',
+    last_page_url: '/?page=2',
+    next_page_url: '/?page=2',
+    previous_page_url: null,
+  },
+  data: [
+    {
+      id: '1',
+      name: 'Cafés',
+      descrption: 'Cafés quentes e gelados',
+      products: [...productMockAPI.data],
     },
   ],
 };

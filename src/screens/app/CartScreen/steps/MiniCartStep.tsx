@@ -1,31 +1,23 @@
-import {useCallback, useState} from 'react';
 import {FlatList, Image, ListRenderItemInfo} from 'react-native';
 
 import {useOrderContext} from '@context';
 import {ProductSummaryCheckoutProps} from '@domain';
-import {useNavigation} from '@react-navigation/native';
 import {formatPrice} from '@utils';
 
-import {
-  BottomSheet,
-  Box,
-  Button,
-  Icon,
-  Text,
-  TouchableOpacityBox,
-} from '@components';
-import {useBottomSheet} from '@hooks';
+import {Box, Icon, Text, TouchableOpacityBox} from '@components';
 
-export function MiniCartStep() {
-  const [selectedProductIdToRemove, setSelectedProductIdToRemove] = useState<
-    string | undefined
-  >(undefined);
+import {CouponSugestion} from '../components/CouponSugestion/CouponSugestion';
+import {SpecialRequest} from '../components/SpecialRequest/SpecialRequest';
+import {OptionContentBottomSheet, useCartScreen} from '../useCartScreen';
 
-  const {orderItems, handleRemoveItem} = useOrderContext();
+export function MiniCartStep({
+  onShowBottomSheet,
+}: {
+  onShowBottomSheet(optionName: OptionContentBottomSheet): void;
+}) {
+  const {orderItems} = useOrderContext();
 
-  const {bottomSheetRef, handleToggleBottomSheet} = useBottomSheet();
-
-  const navigation = useNavigation();
+  const {handleClickRemoveItem} = useCartScreen();
 
   function renderOrderItem({
     item: {id, images, name, price, quantity},
@@ -53,20 +45,12 @@ export function MiniCartStep() {
         <Icon
           name="trash"
           onPress={() => {
-            setSelectedProductIdToRemove(id);
-
-            handleToggleBottomSheet();
+            handleClickRemoveItem(id);
           }}
         />
       </Box>
     );
   }
-
-  const handleClickRemoveItem = useCallback(() => {
-    handleRemoveItem(selectedProductIdToRemove);
-
-    handleToggleBottomSheet();
-  }, [handleRemoveItem, handleToggleBottomSheet, selectedProductIdToRemove]);
 
   function renderHeaderList() {
     return (
@@ -105,46 +89,21 @@ export function MiniCartStep() {
 
   function renderEmptyCartComponent() {
     return (
-      <Box>
-        <Text>Carrinho vazio</Text>
+      <Box mt="s48" gap="s12" mb="s48">
+        <Text preset="headingLarge" textAlign="center">
+          Carrinho vazio!
+        </Text>
+        <Text textAlign="center" color="gray1">
+          Adicione itens ao seu carrinho para começar a fazer o pedido
+        </Text>
       </Box>
-    );
-  }
-
-  function renderFooterList() {
-    return (
-      <TouchableOpacityBox
-        flexDirection="row"
-        alignItems="center"
-        gap="s16"
-        mt="s24"
-        pt="s20"
-        pb="s20"
-        borderColor="gray4"
-        borderTopWidth={1}
-        onPress={() => navigation.navigate('CouponScreen')}>
-        <Icon name="ticket" />
-
-        <Box>
-          <Text>Cupom</Text>
-          <Text preset="paragraphSmall" color="gray2">
-            1 cupom disponível
-          </Text>
-        </Box>
-
-        <TouchableOpacityBox
-          flex={1}
-          justifyContent="flex-end"
-          flexDirection="row"
-          onPress={() => navigation.navigate('CouponScreen')}>
-          <Text color="primary">Adicionar</Text>
-        </TouchableOpacityBox>
-      </TouchableOpacityBox>
     );
   }
 
   return (
     <>
+      <SpecialRequest onShowBottomSheet={onShowBottomSheet} />
+
       <FlatList
         data={orderItems}
         keyExtractor={item => item.id}
@@ -152,32 +111,11 @@ export function MiniCartStep() {
         ItemSeparatorComponent={renderItemSeparatorComponent}
         ListHeaderComponent={renderHeaderList}
         stickyHeaderIndices={[0]}
-        ListHeaderComponentStyle={{marginBottom: 12}}
+        ListHeaderComponentStyle={{marginBottom: 12, backgroundColor: 'white'}}
         ListEmptyComponent={renderEmptyCartComponent}
-        ListFooterComponent={renderFooterList}
         ListFooterComponentStyle={{paddingBottom: 28}}
+        ListFooterComponent={<CouponSugestion />}
       />
-
-      <BottomSheet ref={bottomSheetRef}>
-        <Box>
-          <Box>
-            <Text preset="headingMedium" bold mb="s8">
-              Remover item
-            </Text>
-            <Text color="gray2">
-              Você tem certeza que deseja remover este produto do seu carrinho ?
-            </Text>
-          </Box>
-
-          <Button text="Remover" mt="s24" onPress={handleClickRemoveItem} />
-          <Button
-            text="Cencelar"
-            preset="outline"
-            mt="s16"
-            onPress={handleToggleBottomSheet}
-          />
-        </Box>
-      </BottomSheet>
     </>
   );
 }

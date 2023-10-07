@@ -7,11 +7,12 @@ export * from './app/NotificationScreen/NotificationScreen';
 export * from './app/FavoriteScreen/FavoriteScreen';
 export * from './app/HomeScreen/HomeScreen';
 export * from './app/AboutUsScreen/AboutUsScreen';
-export * from './app/OutletScreen/OutletScreen';
+export * from './app/OrdersScreen/OrdersScreen';
 
 export * from './app/CartScreen/CartScreen';
 export * from './app/CouponScreen/CouponScreen';
-export * from './app/SuccessOrderScreen/SuccessOrderScreen';
+export * from './app/OrderPlacedScreen/OrderPlacedScreen';
+export * from './app/OrderDetailsScreen/OrderDetailsScreen';
 
 export * from './app/ProductScreen/ProductScreen';
 export * from './app/CategoryScreen/CategoryScreen';

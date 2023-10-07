@@ -37,10 +37,13 @@ export function ProductShelf({
         horizontal
         contentContainerStyle={{
           gap: 16,
-          flex: productsDataListPage?.data.length === 0 ? 1 : undefined,
+          flex:
+            productsDataListPage?.data[0]?.products.length === 0
+              ? 1
+              : undefined,
           paddingBottom: 2,
         }}
-        data={productsDataListPage?.data.slice(0, maxItems)}
+        data={productsDataListPage?.data[0]?.products.slice(0, maxItems)}
         keyExtractor={item => item.id}
         renderItem={renderItem}
         ListEmptyComponent={renderEmptyComponent}

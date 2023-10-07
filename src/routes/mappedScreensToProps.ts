@@ -19,11 +19,11 @@ export const mappedScreensToProps: Record<
       unfocused: 'bagFill',
     },
   },
-  OutletScreen: {
-    label: 'Sobre',
+  OrdersScreen: {
+    label: 'Pedidos',
     icon: {
-      focused: 'bag',
-      unfocused: 'bagFill',
+      focused: 'transaction',
+      unfocused: 'transactionFill',
     },
   },
   ProfileScreen: {

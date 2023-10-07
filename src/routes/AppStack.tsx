@@ -14,8 +14,9 @@ import {
   NotificationScreen,
   PrivacyPolicyScreen,
   ProductScreen,
-  SuccessOrderScreen,
+  OrderPlacedScreen,
   TermsAndConditionsScreen,
+  OrderDetailsScreen,
 } from '@screens';
 
 import {
@@ -39,7 +40,8 @@ export function AppStackScreen() {
       <Screen name="ProductScreen" component={ProductScreen} />
       <Screen name="CategoryScreen" component={CategoryScreen} />
 
-      <Screen name="SuccessOrderScreen" component={SuccessOrderScreen} />
+      <Screen name="OrderPlacedScreen" component={OrderPlacedScreen} />
+      <Screen name="OrderDetailsScreen" component={OrderDetailsScreen} />
       <Screen name="CouponScreen" component={CouponScreen} />
 
       <Screen name="ManageAccountScreen" component={ManageAccountScreen} />

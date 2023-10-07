@@ -1,4 +1,4 @@
-import {AuthContextProvider} from '@context';
+import {AuthContextProvider, ProductContextProvider} from '@context';
 import {OrderContextProvider} from '@context';
 import {ThemeProvider} from '@shopify/restyle';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
@@ -14,7 +14,9 @@ function App(): JSX.Element {
         <GestureHandlerRootView style={{flex: 1}}>
           <AuthContextProvider>
             <OrderContextProvider>
-              <Router />
+              <ProductContextProvider>
+                <Router />
+              </ProductContextProvider>
             </OrderContextProvider>
           </AuthContextProvider>
         </GestureHandlerRootView>

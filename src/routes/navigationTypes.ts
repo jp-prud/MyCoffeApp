@@ -24,7 +24,12 @@ export type AppStackParamList = {
   OutletScreen: undefined;
   CouponScreen: undefined;
   AboutUsScreen: undefined;
-  SuccessOrderScreen: undefined;
+  OrderPlacedScreen: {
+    orderId: string;
+  };
+  OrderDetailsScreen: {
+    orderId: string;
+  };
   ProductScreen: {
     productId: string;
   };
@@ -53,7 +58,7 @@ export type AuthStackParamList = {
 export type AppTabNavigatorParamList = {
   HomeScreen: undefined;
   CartScreen: undefined;
-  OutletScreen: undefined;
+  OrdersScreen: undefined;
   ProfileScreen: undefined;
 };
 

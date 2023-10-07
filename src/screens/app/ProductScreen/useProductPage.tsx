@@ -1,61 +1,36 @@
-import {useState, useEffect, useCallback, useMemo} from 'react';
+import {useEffect} from 'react';
 
-import {ProductPropsAPP} from '@domain';
+import {useProductContext} from '@context';
 
 import {AppScreenProps} from '@routes';
 
-import ProductService from '../../../services/ProductService';
-
-interface UseProductPageProps {}
-
-export type UpdateOptionType = 'more' | 'less';
-
 export function useProductPage({
   route,
-}: UseProductPageProps & Pick<AppScreenProps<'ProductScreen'>, 'route'>) {
-  const [productContext, setProductContext] = useState<
-    ProductPropsAPP | undefined
-  >(undefined);
-  const [isLoading, setIsLoading] = useState(true);
-  const [productQuantity, setProductQuantity] = useState(1);
-
-  const handleClickUpdateProductQuantity = useCallback(
-    (updateOption: UpdateOptionType) => {
-      if (updateOption === 'less') {
-        setProductQuantity(prevState => (prevState === 1 ? 1 : prevState - 1));
-
-        return;
-      }
-
-      setProductQuantity(prevState => prevState + 1);
-    },
-    [],
-  );
-
-  const calculatedProductPrice = useMemo(() => {
-    if (!productContext) {
-      return 0;
-    }
-
-    return productContext?.price * productQuantity;
-  }, [productContext, productQuantity]);
+  navigation,
+}: AppScreenProps<'ProductScreen'>) {
+  const {
+    productContext,
+    isLoading,
+    price,
+    selectedQuantity,
+    onUpdateProductQuantity,
+    getProductContext,
+    clearProductContext,
+  } = useProductContext();
 
   useEffect(() => {
-    (async () => {
-      const response = await ProductService.getProductById(
-        route.params.productId,
-      );
+    getProductContext(route.params.productId);
+  }, [getProductContext, route.params.productId]);
 
-      setProductContext(response);
-      setIsLoading(false);
-    })();
-  }, [route.params.productId]);
+  useEffect(() => {
+    navigation.addListener('blur', () => clearProductContext());
+  }, [navigation, clearProductContext]);
 
   return {
     productContext,
-    calculatedProductPrice,
+    price,
     isLoading,
-    productQuantity,
-    handleClickUpdateProductQuantity,
+    selectedQuantity,
+    onUpdateProductQuantity,
   };
 }

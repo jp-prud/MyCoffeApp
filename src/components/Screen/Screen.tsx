@@ -1,28 +1,21 @@
 import {KeyboardAvoidingView, Platform} from 'react-native';
 
-import {useNavigation} from '@react-navigation/native';
-
-import {
-  ActivityIndicator,
-  Box,
-  TouchableOpacityBox,
-  Text,
-  Icon,
-  BoxProps,
-} from '@components';
+import {ActivityIndicator, Box, BoxProps} from '@components';
 import {useAppTheme, useAppSafeArea} from '@hooks';
 
 import {
   ScrollableViewContainer,
   ViewContainer,
 } from './components/ScreenContainers';
+import {ScreenHeader} from './components/ScreenHeader';
 
-interface ScreenProps extends BoxProps {
+export interface ScreenProps extends BoxProps {
   children: React.ReactNode;
   FooterComponent?: React.ReactNode;
   canGoBack?: boolean;
   scrollable?: boolean;
   isLoading?: boolean;
+  title?: string;
 }
 
 export function Screen({
@@ -32,6 +25,7 @@ export function Screen({
   scrollable = false,
   FooterComponent,
   style,
+  title,
   ...boxProps
 }: ScreenProps) {
   const {top, bottom} = useAppSafeArea();
@@ -40,36 +34,11 @@ export function Screen({
   const Container =
     scrollable && !isLoading ? ScrollableViewContainer : ViewContainer;
 
-  const {goBack} = useNavigation();
-
-  function renderBackButton() {
-    return (
-      <TouchableOpacityBox
-        mb="s24"
-        gap="s8"
-        flexDirection="row"
-        alignItems="center"
-        onPress={goBack}>
-        <Box
-          width={22}
-          style={{
-            transform: [
-              {
-                scale: -1,
-              },
-            ],
-          }}>
-          <Icon name="arrow" color="primary" />
-        </Box>
-
-        <Text preset="paragraphMedium" semiBold>
-          Voltar
-        </Text>
-      </TouchableOpacityBox>
-    );
-  }
-
   function renderLoadingScreenState() {
+    if (!isLoading) {
+      return;
+    }
+
     return (
       <Box alignItems="center" justifyContent="center">
         <ActivityIndicator color="primary" size={48} />
@@ -83,20 +52,24 @@ export function Screen({
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <Container backgroundColor={colors.background}>
         <Box
-          paddingHorizontal="s24"
+          flex={1}
+          justifyContent={isLoading ? 'center' : 'flex-start'}
           style={[
             {
               paddingTop: top,
               paddingBottom: bottom,
-              justifyContent: 'center',
+              paddingHorizontal: 24,
             },
             style,
           ]}
-          flex={1}
           {...boxProps}>
-          {canGoBack && !isLoading && renderBackButton()}
+          {!isLoading && (title || canGoBack) && (
+            <ScreenHeader title={title} canGoBack={canGoBack} />
+          )}
 
-          {isLoading ? renderLoadingScreenState() : children}
+          {renderLoadingScreenState()}
+
+          {!isLoading && children}
         </Box>
       </Container>
 

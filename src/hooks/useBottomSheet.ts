@@ -7,6 +7,7 @@ export function useBottomSheet() {
 
   const handleToggleBottomSheet = useCallback(() => {
     const isActive = bottomSheetRef?.current?.isActive();
+
     if (isActive) {
       bottomSheetRef?.current?.scrollTo(0);
     } else {

@@ -7,3 +7,6 @@ export * from './Celebration/celebrationsShelfMock';
 
 export * from './Coupon/Coupon.types';
 export * from './Coupon/couponMocks';
+
+export * from './Order/Order.types';
+export * from './Order/orderMocks';

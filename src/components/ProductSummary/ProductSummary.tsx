@@ -9,6 +9,10 @@ import {Text, Box} from '@components';
 export function ProductSummary({product}: {product: ProductSummaryProps}) {
   const navigate = useNavigation();
 
+  if (!product) {
+    return;
+  }
+
   function handleClickNavigateProductPage() {
     navigate.navigate('ProductScreen', {
       productId: product.id,
@@ -20,14 +24,20 @@ export function ProductSummary({product}: {product: ProductSummaryProps}) {
       onPress={handleClickNavigateProductPage}
       testID="product-summary">
       <Box width={154} borderRadius="s16" overflow="hidden" elevation={1}>
-        <Box width={154} borderRadius="s12" overflow="hidden">
+        <Box
+          height={154}
+          borderRadius="s12"
+          overflow="hidden"
+          justifyContent="center"
+          alignItems="center">
           <Image
             source={{
-              uri: product.images[0].url,
+              uri: product?.images[0].url,
               height: 152,
-              width: 154,
+              width: 152,
             }}
-            alt={product.images[0].alt}
+            style={{borderRadius: 14}}
+            alt={product?.images[0].alt}
           />
         </Box>
 

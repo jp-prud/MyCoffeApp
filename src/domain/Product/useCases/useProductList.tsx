@@ -4,11 +4,11 @@ import {Alert} from 'react-native';
 import {MetaDataPage, Page} from '@types';
 
 import ProductService from '../../../services/ProductService';
-import {ProductPropsAPP} from '../Product.types';
+import {CategoryPagePropsAPP} from '../Product.types';
 
 export function useProductList(categoryId: string) {
   const [productsDataListPage, setProductsDataListPage] = useState<
-    Page<ProductPropsAPP>
+    Page<CategoryPagePropsAPP>
   >({
     meta: {} as MetaDataPage,
     data: [],

@@ -11,6 +11,7 @@ import {BookmarkFillIcon} from '../../assets/icons/BookmarkFillIcon';
 import {BookmarkIcon} from '../../assets/icons/BookmarkIcon';
 import {CalendarIcon} from '../../assets/icons/CalendarIcon';
 import {CallIcon} from '../../assets/icons/CallIcon';
+import {CardIcon} from '../../assets/icons/CardIcon';
 import {CheckRoundIcon} from '../../assets/icons/CheckRoundIcon';
 import {ChevronIcon} from '../../assets/icons/ChevronIcon';
 import {ClockIcon} from '../../assets/icons/ClockIcon';
@@ -30,6 +31,8 @@ import {SendFillIcon} from '../../assets/icons/SendFillIcon';
 import {SendIcon} from '../../assets/icons/SendIcon';
 import {TagIcon} from '../../assets/icons/Tagicon';
 import {TicketIcon} from '../../assets/icons/TicketIcon';
+import {TransactionFillIcon} from '../../assets/icons/TransactionFillIcon';
+import {TransactionIcon} from '../../assets/icons/TransactionIcon';
 import {TrashIcon} from '../../assets/icons/TrashIcon';
 import {UserFillIcon} from '../../assets/icons/UserFillIcon';
 import {UserIcon} from '../../assets/icons/UserIcon';
@@ -80,6 +83,7 @@ const iconRegistry = {
   call: CallIcon,
   calendar: CalendarIcon,
   clock: ClockIcon,
+  card: CardIcon,
   eyeOff: EyeOffIcon,
   eyeOn: EyeOnIcon,
   heart: HeartIcon,
@@ -99,6 +103,8 @@ const iconRegistry = {
   tag: TagIcon,
   ticket: TicketIcon,
   trash: TrashIcon,
+  transaction: TransactionIcon,
+  transactionFill: TransactionFillIcon,
 };
 
 type IconType = typeof iconRegistry;

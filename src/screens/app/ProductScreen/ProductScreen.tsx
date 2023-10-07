@@ -11,36 +11,24 @@ import {
 import {AppScreenProps} from '@routes';
 
 import {FixedActionsContainer} from './components/FixedActionsContainer/FixedActionsContainer';
-import {OptionsSelector} from './components/OptionsSelector/OptionsSelector';
+// import {OptionsSelector} from './components/OptionsSelector/OptionsSelector';
 import {useProductPage} from './useProductPage';
 
-export function ProductScreen({route}: AppScreenProps<'ProductScreen'>) {
-  const {
-    productContext,
-    isLoading,
-    calculatedProductPrice,
-    handleClickUpdateProductQuantity,
-    productQuantity,
-  } = useProductPage({route});
+export function ProductScreen({
+  route,
+  navigation,
+}: AppScreenProps<'ProductScreen'>) {
+  const {productContext, isLoading} = useProductPage({route, navigation});
 
   return (
     <Screen
       canGoBack
       isLoading={isLoading}
       scrollable
-      FooterComponent={
-        productContext && (
-          <FixedActionsContainer
-            productContext={productContext}
-            calculatedProductPrice={calculatedProductPrice}
-            handleClickUpdateProductQuantity={handleClickUpdateProductQuantity}
-            productQuantity={productQuantity}
-          />
-        )
-      }>
+      FooterComponent={productContext && <FixedActionsContainer />}>
       {productContext && (
         <>
-          <Box borderRadius="s16" overflow="hidden">
+          <Box borderRadius="s16" overflow="hidden" testID="product-screen">
             <Image
               source={{
                 uri: productContext.images[0].url,
@@ -82,7 +70,7 @@ export function ProductScreen({route}: AppScreenProps<'ProductScreen'>) {
             </Text>
           </Box>
 
-          <OptionsSelector />
+          {/* <OptionsSelector /> */}
 
           <Box mt="s24">
             <Box

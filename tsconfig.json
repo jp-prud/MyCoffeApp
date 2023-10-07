@@ -9,7 +9,7 @@
     "allowJs": true,
     "jsx": "react-native",
     "moduleResolution": "node",
-     "allowSyntheticDefaultImports": true,
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true ,
     "resolveJsonModule": true,

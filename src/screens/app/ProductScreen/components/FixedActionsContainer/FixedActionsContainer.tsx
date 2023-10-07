@@ -1,32 +1,32 @@
-import {useOrderContext} from '@context';
-import {ProductPropsAPP} from '@domain';
+import {useOrderContext, useProductContext} from '@context';
 import {useNavigation} from '@react-navigation/native';
 
-import {Text, Box, Button, Icon} from '@components';
+import {Box, Button, ProductQuantity, Text} from '@components';
 import {useAppSafeArea} from '@hooks';
 import {$shadowProps} from '@theme';
+import { formatPrice } from '@utils';
 
-import {formatPrice} from '../../../../../utils';
-import {UpdateOptionType} from '../../useProductPage';
-
-interface FixedActionsContainer {
-  productContext: ProductPropsAPP;
-  calculatedProductPrice: number;
-  productQuantity: number;
-  handleClickUpdateProductQuantity(updateOption: UpdateOptionType): void;
-}
-
-export function FixedActionsContainer({
-  productContext,
-  calculatedProductPrice,
-  productQuantity,
-  handleClickUpdateProductQuantity,
-}: FixedActionsContainer) {
+export function FixedActionsContainer() {
   const {bottom} = useAppSafeArea();
+
+  const {productContext, selectedQuantity} = useProductContext();
 
   const {handleAddToCart} = useOrderContext();
 
   const navigation = useNavigation();
+
+  async function handleClickAddProductToCart() {
+    if (!productContext) {
+      return;
+    }
+
+    await handleAddToCart({
+      ...productContext,
+      quantity: selectedQuantity,
+    });
+
+    navigation.navigate('CartScreen');
+  }
 
   return (
     <Box
@@ -40,38 +40,15 @@ export function FixedActionsContainer({
         justifyContent="space-between"
         alignItems="center">
         <Text preset="paragraphLarge">
-          {formatPrice(calculatedProductPrice)}
+          {formatPrice(productContext?.price)}
         </Text>
 
-        <Box flexDirection="row" gap="s24">
-          <Icon
-            name="minus"
-            color={productQuantity === 1 ? 'gray4' : 'backgroundContrast'}
-            onPress={() => handleClickUpdateProductQuantity('less')}
-          />
-
-          <Text style={{minWidth: 20}} textAlign="center">
-            {productQuantity}
-          </Text>
-
-          <Icon
-            name="add"
-            onPress={() => handleClickUpdateProductQuantity('more')}
-          />
-        </Box>
+        <ProductQuantity />
       </Box>
 
       <Button
         text="Adicionar ao carrinho"
-        onPress={async () => {
-          await handleAddToCart({
-            ...productContext,
-            price: calculatedProductPrice,
-            quantity: productQuantity,
-          });
-
-          navigation.navigate('CartScreen');
-        }}
+        onPress={handleClickAddProductToCart}
       />
     </Box>
   );

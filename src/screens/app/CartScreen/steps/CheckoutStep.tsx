@@ -1,8 +1,13 @@
-import {formatPrice} from '@utils';
+import {useState} from 'react';
+import {ScrollView, StyleProp, ViewStyle} from 'react-native';
 
-import {Box, Icon, Text, TouchableOpacityBox} from '@components';
+import {deliveryOptionsMock} from '@domain';
+
+import {Badge, Box, Icon, Text, TouchableOpacityBox} from '@components';
 
 import {ProfileNavigator} from '../../ProfileScreen/components/ProfileNavigator';
+import {CouponSugestion} from '../components/CouponSugestion/CouponSugestion';
+import {DeliveryOptions} from '../components/DeliveryOptions/DeliveryOptions';
 
 interface CheckoutStepProps {
   onToggleStep(): void;
@@ -36,6 +41,8 @@ export function CheckoutStep({onToggleStep}: CheckoutStepProps) {
     );
   }
 
+  const [selectedDeliveryOption] = useState(deliveryOptionsMock[0].id);
+
   return (
     <Box>
       {renderCustomBackButton()}
@@ -44,50 +51,34 @@ export function CheckoutStep({onToggleStep}: CheckoutStepProps) {
 
       <Box mt="s16">
         <Box alignItems="center" flexDirection="row">
-          <Box flex={1} flexDirection="row" gap="s16" alignItems="flex-end">
+          <Box flex={1} flexDirection="row" gap="s16" alignItems="center">
             <Icon name="bag" />
 
             <Text semiBold>Tempo de entrega</Text>
           </Box>
 
-          <Text semiBold color="gray3">
+          <Text semiBold color="gray2" preset="paragraphSmall">
             25-35 min
           </Text>
         </Box>
 
-        <Box mt="s20" alignItems="center" flexDirection="row" gap="s12">
-          <Box
-            borderWidth={1}
-            borderColor="gray4"
-            p="s14"
-            borderRadius="s12"
-            flexGrow={1}
-            flex={1}
-            minHeight={120}>
-            <Text bold>Expressa</Text>
-            <Text semiBold>20-30 min</Text>
-            <Text semiBold color="primary">
-              Direto para você
-            </Text>
-            <Text semiBold>{formatPrice(2.99)}</Text>
-          </Box>
-
-          <Box
-            borderWidth={1}
-            borderColor="gray4"
-            p="s14"
-            borderRadius="s12"
-            flex={1}
-            flexGrow={1}
-            minHeight={120}>
-            <Text bold>Expressa</Text>
-            <Text semiBold>20-30 min</Text>
-            <Text semiBold>{formatPrice(2.99)}</Text>
-          </Box>
+        <Box mt="s20">
+          <ScrollView
+            horizontal
+            contentContainerStyle={$deliveryOptionsWrapper}
+            showsHorizontalScrollIndicator={false}>
+            {deliveryOptionsMock.map(deliveryOption => (
+              <DeliveryOptions
+                {...deliveryOption}
+                key={deliveryOption.id}
+                active={deliveryOption.id === selectedDeliveryOption}
+              />
+            ))}
+          </ScrollView>
         </Box>
       </Box>
 
-      <Box mt="s20" gap="s16">
+      <Box mt="s32" gap="s16">
         <ProfileNavigator
           title="1226 University Drive, 1226"
           subtitle="Menlo Park, CA 94025"
@@ -101,11 +92,51 @@ export function CheckoutStep({onToggleStep}: CheckoutStepProps) {
         />
       </Box>
 
-      <Box mt="s20">
-        <Text preset="paragraphLarge" bold>
-          Pagamento
-        </Text>
+      <Box mt="s16">
+        <Box
+          flexDirection="row"
+          alignItems="center"
+          pt="s20"
+          borderColor="gray4"
+          borderTopWidth={1}>
+          <Box flexDirection="row" gap="s16" flex={1}>
+            <Icon name="card" />
+
+            <Text semiBold>Pagamento na entrega</Text>
+          </Box>
+
+          <TouchableOpacityBox>
+            <Text color="primary" semiBold>
+              Alterar
+            </Text>
+          </TouchableOpacityBox>
+        </Box>
+
+        <TouchableOpacityBox
+          flex={1}
+          justifyContent="flex-start"
+          alignItems="center"
+          borderRadius="s12"
+          borderColor="gray2"
+          backgroundColor="gray5"
+          borderWidth={1}
+          p="s16"
+          mt="s16"
+          flexDirection="row"
+          gap="s12">
+          <Badge name="money" />
+
+          <Text semiBold color="gray1">
+            Dinheiro
+          </Text>
+        </TouchableOpacityBox>
+
+        <CouponSugestion />
       </Box>
     </Box>
   );
 }
+
+const $deliveryOptionsWrapper: StyleProp<ViewStyle> = {
+  gap: 12,
+};
